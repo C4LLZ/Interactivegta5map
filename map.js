@@ -1,7 +1,11 @@
 var map = L.map('map', {
     crs: L.CRS.Simple,
-    minZoom: -5
+    minZoom: -5,
+    zoom: 1 // Set the initial zoom level
 });
+
+
+var markersMap = {}; // Mapping between IDs and marker objects
 var isCreatingMarker = false;
 var bounds = [[0,0], [1000,1000]];
 var image = L.imageOverlay('gta5map.png', bounds).addTo(map);
@@ -45,7 +49,8 @@ function createPopupContent(marker) {
     imgInput = L.DomUtil.create('input', 'popup-input', container),
     notesInput = L.DomUtil.create('textarea', 'popup-input', container),
     imgPreview = L.DomUtil.create('img', 'popup-img', container),
-    deleteButton = L.DomUtil.create('button', 'popup-button', container);
+    deleteButton = L.DomUtil.create('button', 'popup-button red', container), // Added 'red' class
+    saveButton = L.DomUtil.create('button', 'popup-button green', container); // Added 'green' class
 
     nameInput.type = 'text';
     nameInput.placeholder = 'Location Name';
@@ -67,13 +72,21 @@ function createPopupContent(marker) {
         openImagePreview(marker.img);
     };
 
+    // Create a button container to align the buttons side by side
+    var buttonContainer = L.DomUtil.create('div', 'popup-button-container', container);
+    buttonContainer.style.display = 'flex'; // Set display to flex to align buttons horizontally
+
+    // Delete Button
     deleteButton.innerHTML = 'Delete';
     deleteButton.onclick = function() {
         map.removeLayer(marker);
         deleteLocation(marker.getLatLng());
     };
+    buttonContainer.appendChild(deleteButton); // Append the delete button to the button container
 
-    nameInput.onchange = imgInput.onchange = notesInput.onchange = function() {
+    // Save Button
+    saveButton.innerHTML = 'Save';
+    saveButton.onclick = function() {
         marker.name = nameInput.value;
         marker.img = imgInput.value;
         marker.notes = notesInput.value;
@@ -81,11 +94,14 @@ function createPopupContent(marker) {
         marker.setPopupContent(container);
         marker.options.title = nameInput.value;
         marker.unbindTooltip().bindTooltip(nameInput.value).openTooltip();
-        saveLocation(marker.getLatLng(), marker.name, marker.img, marker.notes);
+        saveLocation(marker.getLatLng(), marker.name, marker.img, marker.notes, marker.id);
+        updateLocationsList();
     };
+    buttonContainer.appendChild(saveButton); // Append the save button to the button container
 
     return container;
 }
+
 
 
 function openImagePreview(src) {
@@ -114,45 +130,89 @@ function openImagePreview(src) {
     document.body.appendChild(previewContainer);
 }
 
-function saveLocation(latlng, name, img, notes) {
+function saveLocation(latlng, name, img, notes, id) {
     var savedLocations = JSON.parse(localStorage.getItem('locations') || '[]');
-    savedLocations.push({
-        lat: latlng.lat,
-        lng: latlng.lng,
-        name: name,
-        img: img,
-        notes: notes
-    });
+    var existingLocation = savedLocations.find(location => location.id === id);
+
+    if (existingLocation) {
+        existingLocation.name = name;
+        existingLocation.img = img;
+        existingLocation.notes = notes;
+    } else {
+        savedLocations.push({
+            id: id,
+            lat: latlng.lat,
+            lng: latlng.lng,
+            name: name,
+            img: img,
+            notes: notes
+        });
+    }
+
     localStorage.setItem('locations', JSON.stringify(savedLocations));
 }
+
 
 function loadLocations() {
     var savedLocations = JSON.parse(localStorage.getItem('locations') || '[]');
     savedLocations.forEach(function(location) {
-        var marker = L.marker([location.lat, location.lng], { title: location.name }).addTo(map);
+        var marker = L.marker([location.lat, location.lng], { title: location.name, icon: cameraIcon }).addTo(map);
+        marker.id = location.id;
         marker.name = location.name;
         marker.img = location.img;
         marker.notes = location.notes;
         marker.bindPopup(createPopupContent(marker));
+
+        markersMap[location.id] = marker; // Add the marker to the markersMap
+    });
+
+    updateLocationsList();
+}
+
+
+  
+function updateLocationsList() {
+    var locationsListContainer = document.getElementById('locations-list');
+    var savedLocations = JSON.parse(localStorage.getItem('locations') || '[]');
+
+    // Clear previous locations, but keep the title
+    locationsListContainer.innerHTML = '<h1 class="locations-title">Location List</h1>';
+
+    savedLocations.forEach(function(location) {
+        var listItem = document.createElement('div');
+        listItem.className = 'location-item';
+        listItem.textContent = location.name;
+        listItem.onclick = function() {
+            map.setView([location.lat, location.lng]);
+            markersMap[location.id].openPopup(); // Open the popup for the clicked location
+        };
+        locationsListContainer.appendChild(listItem);
     });
 }
 
 
+  
 function deleteLocation(latlng) {
     var savedLocations = JSON.parse(localStorage.getItem('locations') || '[]');
     savedLocations = savedLocations.filter(function(location) {
         return location.lat !== latlng.lat || location.lng !== latlng.lng;
     });
     localStorage.setItem('locations', JSON.stringify(savedLocations));
+    updateLocationsList();
 }
 
 function onMapClick(e) {
     if (isCreatingMarker) {
+        var id = Date.now(); // or use another method to generate a unique ID
         var marker = L.marker(e.latlng, {icon: cameraIcon}).addTo(map);
+        marker.id = id; // Assign the ID to the marker
         marker.bindPopup(createPopupContent(marker)).openPopup();
     } else {
         map.closePopup();
     }
 }
 
+
 map.on('click', onMapClick);
+map.fitBounds(bounds);
+map.setZoom(1); // Set the zoom level after fitting to bounds

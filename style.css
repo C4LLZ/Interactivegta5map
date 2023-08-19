@@ -2,24 +2,87 @@ body, html {
     height: 100%;
     margin: 0;
 }
-#map {
-    height: 100%;
-    width: 100%;
+
+* {
+    font-family: 'Cabin', sans-serif;
+    font-weight: bold;
 }
+
+#map-container {
+    position: relative;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+
+#locations-list {
+    position: absolute;
+    top: 130px; /* Updated position to better accommodate the title */
+    left: 10px;
+    width: 250px; /* Wider for better appearance */
+    max-height: 400px; /* Taller for more space */
+    overflow-y: auto;
+    background-color: #ffffffdb; /* Slightly more opaque background */
+    padding: 10px;
+    border-radius: 4px; /* Softer border */
+    z-index: 1000;
+    text-align: center; /* Center the text */
+    border:solid black 1px;
+}
+
+.locations-title {
+    font-size: 24px;
+    margin: 10px 0; /* More margin to separate from the list */
+    padding: 5px;
+    border-radius: 10px; /* Softer border to match the container */
+}
+
+.location-item {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px; /* More padding for better appearance */
+    margin: 5px; /* Some margin to separate items */
+    border-radius: 5px; /* Soft border */
+    text-align: center; /* Center the text */
+}
+
+.location-item:hover {
+    background-color: #f0f0f0;
+}
+
 .popup-container {
     width: 200px;
     max-width: 1500px;
-    font-family: Arial, sans-serif;
 }
 
-.popup-input {
-    width: 90%;
-    padding: 5px;
+.popup-input,
+.popup-input[type="textarea"] {
+    width: 100%; /* Set the width to 100% */
+    padding: 10px;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
     margin: 5px 0;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
+
+.popup-input:focus {
+    border-color: #007bff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Additional styles for textarea */
+textarea.popup-input {
+    resize: vertical; /* Allow vertical resizing of the textarea */
+}
+
+
 .popup-button {
     display: block;
     width: 100%;
@@ -28,10 +91,12 @@ body, html {
     color: white;
     background-color: #007bff;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     text-align: center;
+    transition: background-color 0.2s; /* Add a transition effect */
 }
+
 .popup-button:hover {
     background-color: #0056b3;
 }
@@ -57,4 +122,21 @@ body, html {
     border: none;
     text-align: center;
     font-size: 24px;
+}
+
+.popup-button-container {
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.popup-button.red {
+    background-color: red;
+    color: white;
+    margin:5px;
+}
+
+.popup-button.green {
+    background-color: green;
+    color: white;
 }
