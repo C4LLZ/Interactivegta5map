@@ -20,7 +20,7 @@ body, html {
 
 #locations-list {
     position: absolute;
-    top: 130px; /* Updated position to better accommodate the title */
+    top: 170px; /* Updated position to better accommodate the title */
     left: 10px;
     width: 250px; /* Wider for better appearance */
     max-height: 400px; /* Taller for more space */
@@ -139,4 +139,36 @@ textarea.popup-input {
 .popup-button.green {
     background-color: green;
     color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+#options-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1001;
+}
+
+#close-options-button {
+    display: block;
+    margin: 10px auto 0;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#close-options-button:hover {
+    background-color: #dc5959;
 }

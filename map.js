@@ -40,8 +40,79 @@ createMarkerControl.onAdd = function (map) {
 };
 createMarkerControl.addTo(map);
 
+var createMarkerControl = L.control({position: 'topleft'});
+createMarkerControl.onAdd = function (map) {
+    var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+    var link = L.DomUtil.create('a', 'leaflet-bar-part', container);
+    var icon = L.DomUtil.create('i', 'fas fa-cog', link);
 
+    link.href = '#';
+    link.title = 'Settings';
 
+    link.onclick = function(e) {
+        showOptionsWindow(); // Show the options window when cogwheel button is clicked
+        L.DomEvent.stopPropagation(e);
+    };
+
+    return container;
+};
+createMarkerControl.addTo(map);
+
+document.getElementById('export-button').addEventListener('click', function() {
+    var savedLocations = JSON.parse(localStorage.getItem('locations') || '[]');
+    var exportData = JSON.stringify(savedLocations, null, 2);
+
+    var blob = new Blob([exportData], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'locations.json';
+    a.click();
+
+    URL.revokeObjectURL(url);
+});
+
+document.getElementById('import-button').addEventListener('click', function() {
+    var fileInput = document.getElementById('import-file');
+    if (fileInput.files.length === 0) {
+        alert('Please select a file to import.');
+        return;
+    }
+
+    var file = fileInput.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(event) {
+        try {
+            var importedData = JSON.parse(event.target.result);
+            localStorage.setItem('locations', JSON.stringify(importedData));
+            loadLocations();
+            alert('Locations imported successfully.');
+        } catch (error) {
+            alert('Error importing locations. Please make sure the file contains valid JSON data.');
+        }
+    };
+
+    reader.readAsText(file);
+});
+
+// Show the options window
+function showOptionsWindow() {
+    var optionsContainer = document.getElementById('options-container');
+    optionsContainer.classList.remove('hidden');
+}
+
+// Hide the options window
+function hideOptionsWindow() {
+    var optionsContainer = document.getElementById('options-container');
+    optionsContainer.classList.add('hidden');
+}
+
+// Close options button
+document.getElementById('close-options-button').addEventListener('click', function() {
+    hideOptionsWindow();
+});
 
 function createPopupContent(marker) {
     var container = L.DomUtil.create('div', 'popup-container'),
@@ -211,7 +282,6 @@ function onMapClick(e) {
         map.closePopup();
     }
 }
-
 
 map.on('click', onMapClick);
 map.fitBounds(bounds);
