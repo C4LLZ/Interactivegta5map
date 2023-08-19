@@ -86,7 +86,18 @@ document.getElementById('import-button').addEventListener('click', function() {
     reader.onload = function(event) {
         try {
             var importedData = JSON.parse(event.target.result);
-            localStorage.setItem('locations', JSON.stringify(importedData));
+            var savedLocations = JSON.parse(localStorage.getItem('locations') || '[]');
+
+            // Determine whether to replace or add imported locations
+            var replaceExisting = confirm("Do you want to replace existing locations with imported ones?");
+            
+            if (replaceExisting) {
+                savedLocations = importedData; // Replace with imported data
+            } else {
+                savedLocations = savedLocations.concat(importedData); // Add imported data
+            }
+
+            localStorage.setItem('locations', JSON.stringify(savedLocations));
             loadLocations();
             alert('Locations imported successfully.');
         } catch (error) {
