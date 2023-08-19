@@ -209,6 +209,13 @@ function saveLocation(latlng, name, img, notes, id) {
         existingLocation.name = name;
         existingLocation.img = img;
         existingLocation.notes = notes;
+
+        // Update the markersMap entry with the updated marker
+        if (markersMap[id]) {
+            markersMap[id].name = name;
+            markersMap[id].img = img;
+            markersMap[id].notes = notes;
+        }
     } else {
         savedLocations.push({
             id: id,
@@ -218,10 +225,20 @@ function saveLocation(latlng, name, img, notes, id) {
             img: img,
             notes: notes
         });
+
+        // Create a new marker and add it to markersMap
+        var marker = L.marker([latlng.lat, latlng.lng], { title: name, icon: cameraIcon }).addTo(map);
+        marker.id = id;
+        marker.name = name;
+        marker.img = img;
+        marker.notes = notes;
+        marker.bindPopup(createPopupContent(marker));
+        markersMap[id] = marker; // Add the marker to markersMap
     }
 
     localStorage.setItem('locations', JSON.stringify(savedLocations));
 }
+
 
 
 function loadLocations() {
