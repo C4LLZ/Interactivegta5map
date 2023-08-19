@@ -274,10 +274,20 @@ function deleteLocation(latlng) {
 
 function onMapClick(e) {
     if (isCreatingMarker) {
+        if (map.dragging) {
+            map.dragging.disable(); // Disable dragging to prevent accidental clicks
+        }
+
         var id = Date.now(); // or use another method to generate a unique ID
-        var marker = L.marker(e.latlng, {icon: cameraIcon}).addTo(map);
+        var marker = L.marker(e.latlng, { icon: cameraIcon }).addTo(map);
         marker.id = id; // Assign the ID to the marker
         marker.bindPopup(createPopupContent(marker)).openPopup();
+
+        // Add a one-time click listener to the map to cancel marker creation
+        map.once('click', function (cancelEvent) {
+            map.dragging.enable(); // Re-enable dragging
+            map.removeLayer(marker); // Remove the newly created marker
+        });
     } else {
         map.closePopup();
     }
