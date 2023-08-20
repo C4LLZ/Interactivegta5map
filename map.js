@@ -218,67 +218,83 @@ document.getElementById('close-options-button').addEventListener('click', functi
 
 function createPopupContent(marker) {
     var container = L.DomUtil.create('div', 'popup-container'),
-        nameInput = L.DomUtil.create('input', 'popup-input', container),
-        imgInput = L.DomUtil.create('input', 'popup-input', container),
-        notesInput = L.DomUtil.create('textarea', 'popup-input', container),
         imgPreview = L.DomUtil.create('img', 'popup-img', container),
-        deleteButton = L.DomUtil.create('button', 'popup-button red', container),
-        saveButton = L.DomUtil.create('button', 'popup-button green', container);
+        notesContainer = L.DomUtil.create('div', 'popup-notes', container);
 
     // Check if the marker is a set location
     if (marker.isSetLocation) {
-        // For set locations, display the name and image from the setLocations data
         var setLocationData = setLocations.find(function(location) {
             return location.name === marker.options.title;
         });
-        nameInput.value = setLocationData.name || '';
-        imgInput.value = setLocationData.img || '';
-        notesInput.value = setLocationData.notes || '';
+
+        // Display the name, image, and notes from the setLocations data
+        var nameHeader = L.DomUtil.create('h1', 'popup-header', container);
+        nameHeader.textContent = setLocationData.name || '';
 
         if (setLocationData.img) {
             imgPreview.src = setLocationData.img;
         }
+
+        if (setLocationData.notes) {
+            notesContainer.textContent = setLocationData.notes || '';
+        }
+
+        container.appendChild(imgPreview);
+        container.appendChild(nameHeader);
+        container.appendChild(notesContainer);
     } else {
-        // For user-created locations, use the marker's data
+        var nameInput = L.DomUtil.create('input', 'popup-input', container),
+            imgInput = L.DomUtil.create('input', 'popup-input', container),
+            notesInput = L.DomUtil.create('textarea', 'popup-input', container),
+            deleteButton = L.DomUtil.create('button', 'popup-button red', container),
+            saveButton = L.DomUtil.create('button', 'popup-button green', container);
+
+        nameInput.type = 'text';
+        nameInput.placeholder = 'Location Name';
         nameInput.value = marker.name || '';
+
+        imgInput.type = 'text';
+        imgInput.placeholder = 'Image URL';
         imgInput.value = marker.img || '';
+
+        notesInput.rows = '3';
+        notesInput.placeholder = 'Notes';
         notesInput.value = marker.notes || '';
 
         if (marker.img) {
             imgPreview.src = marker.img;
         }
+
+        imgPreview.onclick = function() {
+            openImagePreview(marker.img);
+        };
+
+        deleteButton.innerHTML = 'Delete';
+        deleteButton.onclick = function() {
+            map.removeLayer(marker);
+            deleteLocation(marker.getLatLng());
+        };
+
+        saveButton.innerHTML = 'Save';
+        saveButton.onclick = function() {
+            marker.name = nameInput.value;
+            marker.img = imgInput.value;
+            marker.notes = notesInput.value;
+            imgPreview.src = imgInput.value;
+            marker.setPopupContent(container);
+            marker.options.title = nameInput.value;
+            marker.unbindTooltip().bindTooltip(nameInput.value).openTooltip();
+            saveLocation(marker.getLatLng(), marker.name, marker.img, marker.notes, marker.id);
+            updateLocationsList();
+        };
+
+        container.appendChild(nameInput);
+        container.appendChild(imgInput);
+        container.appendChild(notesInput);
+        container.appendChild(imgPreview);
+        container.appendChild(deleteButton);
+        container.appendChild(saveButton);
     }
-
-    imgPreview.onclick = function() {
-        openImagePreview(marker.img);
-    };
-
-    // Create a button container to align the buttons side by side
-    var buttonContainer = L.DomUtil.create('div', 'popup-button-container', container);
-    buttonContainer.style.display = 'flex'; // Set display to flex to align buttons horizontally
-
-    // Delete Button
-    deleteButton.innerHTML = 'Delete';
-    deleteButton.onclick = function() {
-        map.removeLayer(marker);
-        deleteLocation(marker.getLatLng());
-    };
-    buttonContainer.appendChild(deleteButton); // Append the delete button to the button container
-
-    // Save Button
-    saveButton.innerHTML = 'Save';
-    saveButton.onclick = function() {
-        marker.name = nameInput.value;
-        marker.img = imgInput.value;
-        marker.notes = notesInput.value;
-        imgPreview.src = imgInput.value;
-        marker.setPopupContent(container);
-        marker.options.title = nameInput.value;
-        marker.unbindTooltip().bindTooltip(nameInput.value).openTooltip();
-        saveLocation(marker.getLatLng(), marker.name, marker.img, marker.notes, marker.id);
-        updateLocationsList();
-    };
-    buttonContainer.appendChild(saveButton); // Append the save button to the button container
 
     return container;
 }
