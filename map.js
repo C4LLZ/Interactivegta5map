@@ -108,6 +108,14 @@ var setLocations = [
         "name": "House Sell Guy",
         "img": "https://media.discordapp.net/attachments/1107323570725601373/1142887052128555078/image.png?width=720&height=379",
         "notes": "You sell big items from houses here"
+      },
+      {
+        "id": 1692557356830,
+        "lat": 156.40625,
+        "lng": 362.25,
+        "name": "ATM Hacking Tool",
+        "img": "https://media.discordapp.net/attachments/953383097091649616/1142893046653001788/image.png?width=1281&height=671",
+        "notes": "50x Loose Notes"
       }
   ];
 
