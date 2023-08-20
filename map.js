@@ -4,7 +4,90 @@ var map = L.map('map', {
     zoom: 1 // Set the initial zoom level
 });
 
+var setLocations = [
+    {
+        "id": 1692550759787,
+        "lat": 323.28125,
+        "lng": 592.53125,
+        "name": "Grandmas",
+        "img": "https://media.discordapp.net/attachments/1125136413394993242/1139412075576299530/image.png?width=720&height=380",
+        "notes": "MAKE SURE TO HAVE 1x LOOSE NOTE"
+      },
+      {
+        "id": 1692550793505,
+        "lat": 247.53125,
+        "lng": 516.1875,
+        "name": "Big Pawn",
+        "img": "https://media.discordapp.net/attachments/1125136413394993242/1132786426002538666/image.png?width=458&height=749",
+        "notes": "At least 20x Big Pawn Items on you!"
+      },
+      {
+        "id": 1692550833547,
+        "lat": 729.4375,
+        "lng": 652.3125,
+        "name": "ChopShop",
+        "img": "https://media.discordapp.net/attachments/1125136413394993242/1130697073730269206/image.png?width=720&height=462",
+        "notes": "You get the list via text!\n(Need a blowtorch to chop)"
+      },
+      {
+        "id": 1692550880333,
+        "lat": 729.75,
+        "lng": 749.5,
+        "name": "Thermite",
+        "img": "https://media.discordapp.net/attachments/1125136413394993242/1126244800102928424/image.png",
+        "notes": "Plastic:30\nRubber :25\nScrap Metal :15\nIron Oxide :20\nGunpowder :5\nRadio : 1\nBattery : 8\nLaminated Plas:10\nMicrowave: 1\nNewsPaper: 1"
+      },
+      {
+        "id": 1692550949979,
+        "lat": 124.6875,
+        "lng": 516.9375,
+        "name": "Getaway Car",
+        "img": "https://media.discordapp.net/attachments/1125136413394993242/1126223696101654558/FiveM_b2802_GTAProcess_kR2w2McJgc.png?width=720&height=394",
+        "notes": "It's down below in a tunnel"
+      },
+      {
+        "id": 1692550984240,
+        "lat": 192.40625,
+        "lng": 418.40625,
+        "name": "Small Pawn",
+        "img": "https://media.discordapp.net/attachments/1125136413394993242/1125943205721018378/MedalEncoder_Dc7Wz3t9n2.png?width=720&height=362",
+        "notes": "Under the freeway in a train cart"
+      },
+      {
+        "id": 1692551080588,
+        "lat": 147.71875,
+        "lng": 447.359375,
+        "name": "Cargo",
+        "img": "https://media.discordapp.net/attachments/1125136413394993242/1125496646873141319/image.png?width=720&height=391",
+        "notes": ""
+      },
+      {
+        "id": 1692551266615,
+        "lat": 156.125,
+        "lng": 516.125,
+        "name": "Barrel Scrapping",
+        "img": "https://media.discordapp.net/attachments/1125136413394993242/1125350621973839924/image.png?width=720&height=613",
+        "notes": ""
+      },
+      {
+        "id": 1692551354261,
+        "lat": 293.25,
+        "lng": 281.375,
+        "name": "Loose Notes Guy",
+        "img": "https://media.discordapp.net/attachments/1125136413394993242/1125182389623193600/image.png?width=720&height=405",
+        "notes": ""
+      },
+      {
+        "id": 1692551382020,
+        "lat": 662.375,
+        "lng": 520.5,
+        "name": "Vicodine ",
+        "img": "https://media.discordapp.net/attachments/1125136413394993242/1125181484114915358/image.png?width=720&height=574",
+        "notes": ""
+      }
+  ];
 
+var isSetLocationsDisplayed = false;
 var markersMap = {}; // Mapping between IDs and marker objects
 var isCreatingMarker = false;
 var bounds = [[0,0], [1000,1000]];
@@ -127,27 +210,35 @@ document.getElementById('close-options-button').addEventListener('click', functi
 
 function createPopupContent(marker) {
     var container = L.DomUtil.create('div', 'popup-container'),
-    nameInput = L.DomUtil.create('input', 'popup-input', container),
-    imgInput = L.DomUtil.create('input', 'popup-input', container),
-    notesInput = L.DomUtil.create('textarea', 'popup-input', container),
-    imgPreview = L.DomUtil.create('img', 'popup-img', container),
-    deleteButton = L.DomUtil.create('button', 'popup-button red', container), // Added 'red' class
-    saveButton = L.DomUtil.create('button', 'popup-button green', container); // Added 'green' class
+        nameInput = L.DomUtil.create('input', 'popup-input', container),
+        imgInput = L.DomUtil.create('input', 'popup-input', container),
+        notesInput = L.DomUtil.create('textarea', 'popup-input', container),
+        imgPreview = L.DomUtil.create('img', 'popup-img', container),
+        deleteButton = L.DomUtil.create('button', 'popup-button red', container),
+        saveButton = L.DomUtil.create('button', 'popup-button green', container);
 
-    nameInput.type = 'text';
-    nameInput.placeholder = 'Location Name';
-    nameInput.value = marker.name || '';
+    // Check if the marker is a set location
+    if (marker.isSetLocation) {
+        // For set locations, display the name and image from the setLocations data
+        var setLocationData = setLocations.find(function(location) {
+            return location.name === marker.options.title;
+        });
+        nameInput.value = setLocationData.name || '';
+        imgInput.value = setLocationData.img || '';
+        notesInput.value = setLocationData.notes || '';
 
-    imgInput.type = 'text';
-    imgInput.placeholder = 'Image URL';
-    imgInput.value = marker.img || '';
+        if (setLocationData.img) {
+            imgPreview.src = setLocationData.img;
+        }
+    } else {
+        // For user-created locations, use the marker's data
+        nameInput.value = marker.name || '';
+        imgInput.value = marker.img || '';
+        notesInput.value = marker.notes || '';
 
-    notesInput.rows = '3';
-    notesInput.placeholder = 'Notes';
-    notesInput.value = marker.notes || '';
-
-    if (marker.img) {
-        imgPreview.src = marker.img;
+        if (marker.img) {
+            imgPreview.src = marker.img;
+        }
     }
 
     imgPreview.onclick = function() {
@@ -320,6 +411,54 @@ function onMapClick(e) {
         map.closePopup();
     }
 }
+
+function toggleSetLocations() {
+    var locationsListContainer = document.getElementById('locations-list');
+    
+    if (isSetLocationsDisplayed) {
+      // Remove set location markers from the map
+      setLocations.forEach(function(location) {
+        if (markersMap[location.name]) {
+          map.removeLayer(markersMap[location.name]);
+        }
+      });
+      locationsListContainer.innerHTML = ''; // Clear the list
+      isSetLocationsDisplayed = false;
+      updateLocationsList();
+    } else {
+      // Add set location markers to the map and list
+      locationsListContainer.innerHTML = ''; // Clear the list
+      locationsListContainer.innerHTML = '<h1 class="locations-title">Crime Locations</h1>';
+      setLocations.forEach(function(location) {
+        var marker = L.marker([location.lat, location.lng], { title: location.name }).addTo(map);
+        marker.isSetLocation = true;
+  
+        // Create a popup for the set location
+        var popupContent = createPopupContent(marker);
+        marker.bindPopup(popupContent);
+  
+        markersMap[location.name] = marker;
+  
+        // Add the marker to the map
+        marker.addTo(map);
+  
+        // Add the set location to the locations list
+        var listItem = document.createElement('div');
+        listItem.className = 'location-item';
+        listItem.textContent = location.name;
+        listItem.onclick = function() {
+            map.setView([location.lat, location.lng]);
+            marker.openPopup();
+        };
+        locationsListContainer.appendChild(listItem);
+      });
+      isSetLocationsDisplayed = true;
+    }
+  }
+
+  document.getElementById('toggle-set-locations-button').addEventListener('click', function() {
+    toggleSetLocations();
+  });
 
 map.on('click', onMapClick);
 map.fitBounds(bounds);

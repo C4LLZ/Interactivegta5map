@@ -23,7 +23,6 @@ body, html {
     top: 170px; /* Updated position to better accommodate the title */
     left: 10px;
     width: 250px; /* Wider for better appearance */
-    max-height: 400px; /* Taller for more space */
     overflow-y: auto;
     background-color: #ffffffdb; /* Slightly more opaque background */
     padding: 10px;
