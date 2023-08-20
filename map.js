@@ -92,6 +92,22 @@ var setLocations = [
         "name": "Pool Cues",
         "img": "https://media.discordapp.net/attachments/1125136413394993242/1125181178421465218/image.png?width=720&height=405",
         "notes": ""
+      },
+      {
+        "id": 1692554348584,
+        "lat": 242.3359375,
+        "lng": 519.921875,
+        "name": "Xanax",
+        "img": "https://cdn.discordapp.com/attachments/1060866410697465888/1142880343989440583/8ff858eda5d27e501a6d8a18bfbde8c4.png",
+        "notes": "Under the ramp in the tunnel. Same price as before"
+      },
+      {
+        "id": 1692555949072,
+        "lat": 354.9375,
+        "lng": 478.25,
+        "name": "House Sell Guy",
+        "img": "https://media.discordapp.net/attachments/1107323570725601373/1142887052128555078/image.png?width=720&height=379",
+        "notes": "You sell big items from houses here"
       }
   ];
 
