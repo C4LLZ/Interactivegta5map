@@ -84,6 +84,14 @@ var setLocations = [
         "name": "Vicodine ",
         "img": "https://media.discordapp.net/attachments/1125136413394993242/1125181484114915358/image.png?width=720&height=574",
         "notes": ""
+      },
+      {
+        "id": 1692551564178,
+        "lat": 669.6875,
+        "lng": 283.65625,
+        "name": "Pool Cues",
+        "img": "https://media.discordapp.net/attachments/1125136413394993242/1125181178421465218/image.png?width=720&height=405",
+        "notes": ""
       }
   ];
 
