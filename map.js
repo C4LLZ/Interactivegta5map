@@ -70,15 +70,15 @@ var setLocations = [
         "notes": ""
       },
       {
-        "id": 1692551354261,
-        "lat": 293.25,
-        "lng": 281.375,
+        "id": 1600008222438,
+        "lat": 558.125,
+        "lng": 485.3125,
         "name": "Loose Notes Guy",
-        "img": "https://media.discordapp.net/attachments/1125136413394993242/1125182389623193600/image.png?width=720&height=405",
+        "img": "https://media.discordapp.net/attachments/1142875804158660758/1174026418137604176/image.png",
         "notes": ""
       },
       {
-        "id": 1692551382020,
+        "id": 1600008222436,
         "lat": 662.375,
         "lng": 520.5,
         "name": "Vicodine ",
