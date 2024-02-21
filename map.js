@@ -74,7 +74,7 @@ var setLocations = [
         "lat": 620.984375,
         "lng": 460.5625,
         "name": "Toluene 3",
-        "img": "",
+        "img": "https://media.discordapp.net/attachments/872877063168733225/1209898084402995280/image.png?ex=65e89866&is=65d62366&hm=edbe1f50e901819c1533ad0017c7feaf3827201e22e5d72fb09ff71f98bc02eb&=&format=webp&quality=lossless&width=339&height=314",
         "notes": ""
       },
       {
