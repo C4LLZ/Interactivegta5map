@@ -76,6 +76,46 @@ var setLocations = [
         "name": "Toluene 3",
         "img": "",
         "notes": ""
+      },
+      {
+        "id": 1708532295684,
+        "lat": 700.546875,
+        "lng": 615.234375,
+        "name": "Random Bench",
+        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209795618025766983/image.png?ex=65e838f8&is=65d5c3f8&hm=19de2962d2943447c7ff0d6ec1461ae17696cdba6ae4c1bfd69c7d930659585e&=&format=webp&quality=lossless&width=482&height=314",
+        "notes": ""
+      },
+      {
+        "id": 1708532335782,
+        "lat": 148.859375,
+        "lng": 528.765625,
+        "name": "Boot Legging",
+        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209784466097176576/image.png?ex=65e82e95&is=65d5b995&hm=bd7ef24606f93812481e0aba47d17356cc7da14c47f691b1d5fae73f84896375&=&format=webp&quality=lossless&width=411&height=314",
+        "notes": ""
+      },
+      {
+        "id": 1708532370467,
+        "lat": 341.484375,
+        "lng": 274.46875,
+        "name": "Cargo Heist",
+        "img": "",
+        "notes": "Inside of the maze!"
+      },
+      {
+        "id": 1708532410444,
+        "lat": 254.8125,
+        "lng": 489.40625,
+        "name": "Digital Den",
+        "img": "",
+        "notes": "On The Roof! "
+      },
+      {
+        "id": 1708532438305,
+        "lat": 153.875,
+        "lng": 371.28125,
+        "name": "Cargo",
+        "img": "https://images-ext-2.discordapp.net/external/h08ZNtDx1UDAdWRYmMixmzblx9WrMawq1vDWWDasJ78/https/i.imgur.com/qgiEUO4.png?format=webp&quality=lossless&width=359&height=202",
+        "notes": "Cleans Money"
       }
   ];
 
