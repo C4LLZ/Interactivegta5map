@@ -116,6 +116,78 @@ var setLocations = [
         "name": "ATM Hacking Tool",
         "img": "https://media.discordapp.net/attachments/953383097091649616/1142893046653001788/image.png?width=1281&height=671",
         "notes": "50x Loose Notes"
+      },
+      {
+        "id": 1708531470118,
+        "lat": 627.96875,
+        "lng": 465.921875,
+        "name": "Glycol 1",
+        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209882575620022353/image.png?ex=65e889f4&is=65d614f4&hm=7b29cd5beda1c1d8857dabb6dd7efd8e948da216bd414413c5a346938dc52c10&=&format=webp&quality=lossless&width=765&height=662",
+        "notes": ""
+      },
+      {
+        "id": 1708531506637,
+        "lat": 627.4921875,
+        "lng": 465.625,
+        "name": "Glycol 2",
+        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209881122431967352/image.png?ex=65e8889a&is=65d6139a&hm=abe252b41a5ce9ca4f1ac643f67fc3705948bb9cc40557a0351d6f981ce318c5&=&format=webp&quality=lossless&width=323&height=382",
+        "notes": ""
+      },
+      {
+        "id": 1708531524416,
+        "lat": 627.234375,
+        "lng": 466.296875,
+        "name": "Glycol 3",
+        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209890985539276901/image.png?ex=65e891c9&is=65d61cc9&hm=76bc1617946bfb43b84ff17c4fec50c8a83048a468c49c39483fcdfeb2c0d7d0&=&format=webp&quality=lossless&width=611&height=547",
+        "notes": ""
+      },
+      {
+        "id": 1708531561051,
+        "lat": 623.3125,
+        "lng": 464.765625,
+        "name": "Sodium 1",
+        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209886469338955878/image.png?ex=65e88d94&is=65d61894&hm=16d72ba0a2c880b28dc794c1d57c79b3c07a71ee233ea81123f6d8b640bcd0b8&=&format=webp&quality=lossless&width=827&height=635",
+        "notes": ""
+      },
+      {
+        "id": 1708531580864,
+        "lat": 622.8046875,
+        "lng": 464.4765625,
+        "name": "Sodium 2",
+        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209888765611352195/image.png?ex=65e88fb8&is=65d61ab8&hm=3c3a7295fec1cb74bae50e7d46d75858f4d3b1259a3333b755352f83a1a2bc07&=&format=webp&quality=lossless&width=670&height=477",
+        "notes": ""
+      },
+      {
+        "id": 1708531646823,
+        "lat": 622.2890625,
+        "lng": 463.7890625,
+        "name": "Sodium 3",
+        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209881833291120770/image.png?ex=65e88943&is=65d61443&hm=7a829e5188af436dcf549a4730a3625cb9313fac02466bdb0812ab58de6daf13&=&format=webp&quality=lossless&width=756&height=587",
+        "notes": ""
+      },
+      {
+        "id": 1708531679554,
+        "lat": 621.328125,
+        "lng": 462.859375,
+        "name": "Toluene 1",
+        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209892029320929310/image.png?ex=65e892c2&is=65d61dc2&hm=cca53397618eb696922c3fa9f566b726a2644d512bb0b6ec60a4b9a75ed4994e&=&format=webp&quality=lossless&width=538&height=524",
+        "notes": ""
+      },
+      {
+        "id": 1708531710643,
+        "lat": 620.203125,
+        "lng": 459.640625,
+        "name": "Toluene 2",
+        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209881516306337852/image.png?ex=65e888f7&is=65d613f7&hm=ceda57d5fab9a0ef58e9706809e28d7520322655f33e2a02db3cc2715d9f791c&=&format=webp&quality=lossless&width=359&height=386",
+        "notes": ""
+      },
+      {
+        "id": 1708531727940,
+        "lat": 620.984375,
+        "lng": 460.5625,
+        "name": "Toluene 3",
+        "img": "",
+        "notes": ""
       }
   ];
 
