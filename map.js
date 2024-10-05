@@ -71,7 +71,8 @@ var categories = {
             {"id":1728136841502,"lat":"350.281250","lng":"417.906250","name":"Digital Den","img":"https://i.ibb.co/N78SgHH/image.png"},
             {"id":1728140150922,"lat":"287.843750","lng":"548.968750","name":"Digital Den","img":"https://i.ibb.co/M5MJTLv/image.png"},
             {"id":1728140212133,"lat":"299.765625","lng":"548.203125","name":"Digital Den","img":"https://i.ibb.co/09rwtK9/image.png"},
-            {"id":1728140358599,"lat":"299.843750","lng":"348.093750","name":"Digital Den","img":"https://i.ibb.co/R7GQDfL/image.png"}
+            {"id":1728140358599,"lat":"299.843750","lng":"348.093750","name":"Digital Den","img":"https://i.ibb.co/R7GQDfL/image.png"},
+            {"id":1728140629493,"lat":"254.500000","lng":"489.375000","name":"Digital Den","img":"https://i.ibb.co/mccB2Lx/image.png"}
         ]
     },
     "Trap Houses": {
