@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
 body, html {
     height: 100%;
     margin: 0;
+    font-family: 'Oswald', sans-serif;
 }
 
 * {
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: bold;
 }
 
@@ -24,12 +27,13 @@ body, html {
     left: 10px;
     width: 250px; /* Wider for better appearance */
     overflow-y: auto;
-    background-color: #ffffffdb; /* Slightly more opaque background */
+    background-color: #565656; /* Slightly more opaque background */
     padding: 10px;
     border-radius: 4px; /* Softer border */
     z-index: 1000;
     text-align: center; /* Center the text */
-    border:solid black 1px;
+    border:solid black 2px;
+    color:white;
 }
 
 .locations-title {
@@ -46,6 +50,7 @@ body, html {
     margin: 5px; /* Some margin to separate items */
     border-radius: 5px; /* Soft border */
     text-align: center; /* Center the text */
+    border:solid black 2px;
 }
 
 .location-item:hover {
@@ -54,6 +59,7 @@ body, html {
 
 .popup-container {
     width: 200px;
+    background-color: #333;
     max-width: 1500px;
 }
 
@@ -116,6 +122,11 @@ textarea.popup-input {
     color: red;
 }
 
+.leaflet-popup-content-wrapper {
+    background-color: #565656;
+    color:white;
+}
+
 .leaflet-div-icon {
     background: transparent;
     border: none;
@@ -170,4 +181,130 @@ textarea.popup-input {
 
 #close-options-button:hover {
     background-color: #dc5959;
+}
+
+
+.accordion {
+    cursor: pointer;
+    padding: 10px;
+    text-align: left;
+    background-color: #333;
+    color: white;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    transition: 0.3s;
+    border:solid black 2px;
+}
+
+.accordion:hover {
+    background-color: #444;
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: #333;
+    overflow: hidden;
+    color:white;
+}
+
+.panel.show {
+    display: block;
+}
+
+.locations-item {
+    cursor: pointer;
+    padding: 8px;
+    background-color: #333;
+    margin: 4px 0;
+}
+
+.locations-item:hover {
+    background-color: #3c3c3c;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    padding-top: 60px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black with opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 50%;
+    max-width: 500px;
+}
+
+/* Caption of Modal Image */
+#modal-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+/* Add Animation */
+.modal-content {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes zoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* The Close Button */
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.category-container {
+    display: flex;
+    align-items: center;
+}
+
+.color-indicator {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%; /* Makes the div a circle */
+    margin-right: 10px;
 }

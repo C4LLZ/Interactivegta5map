@@ -4,510 +4,284 @@ var map = L.map('map', {
     zoom: 1 // Set the initial zoom level
 });
 
-var setLocations = [
-      {
-        "id": 1708531470118,
-        "lat": 627.96875,
-        "lng": 465.921875,
-        "name": "Glycol 1",
-        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209882575620022353/image.png?ex=65e889f4&is=65d614f4&hm=7b29cd5beda1c1d8857dabb6dd7efd8e948da216bd414413c5a346938dc52c10&=&format=webp&quality=lossless&width=765&height=662",
-        "notes": ""
-      },
-      {
-        "id": 1708531506637,
-        "lat": 627.4921875,
-        "lng": 465.625,
-        "name": "Glycol 2",
-        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209881122431967352/image.png?ex=65e8889a&is=65d6139a&hm=abe252b41a5ce9ca4f1ac643f67fc3705948bb9cc40557a0351d6f981ce318c5&=&format=webp&quality=lossless&width=323&height=382",
-        "notes": ""
-      },
-      {
-        "id": 1708531524416,
-        "lat": 627.234375,
-        "lng": 466.296875,
-        "name": "Glycol 3",
-        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209890985539276901/image.png?ex=65e891c9&is=65d61cc9&hm=76bc1617946bfb43b84ff17c4fec50c8a83048a468c49c39483fcdfeb2c0d7d0&=&format=webp&quality=lossless&width=611&height=547",
-        "notes": ""
-      },
-      {
-        "id": 1708531561051,
-        "lat": 623.3125,
-        "lng": 464.765625,
-        "name": "Sodium 1",
-        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209886469338955878/image.png?ex=65e88d94&is=65d61894&hm=16d72ba0a2c880b28dc794c1d57c79b3c07a71ee233ea81123f6d8b640bcd0b8&=&format=webp&quality=lossless&width=827&height=635",
-        "notes": ""
-      },
-      {
-        "id": 1708531580864,
-        "lat": 622.8046875,
-        "lng": 464.4765625,
-        "name": "Sodium 2",
-        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209888765611352195/image.png?ex=65e88fb8&is=65d61ab8&hm=3c3a7295fec1cb74bae50e7d46d75858f4d3b1259a3333b755352f83a1a2bc07&=&format=webp&quality=lossless&width=670&height=477",
-        "notes": ""
-      },
-      {
-        "id": 1708531646823,
-        "lat": 622.2890625,
-        "lng": 463.7890625,
-        "name": "Sodium 3",
-        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209881833291120770/image.png?ex=65e88943&is=65d61443&hm=7a829e5188af436dcf549a4730a3625cb9313fac02466bdb0812ab58de6daf13&=&format=webp&quality=lossless&width=756&height=587",
-        "notes": ""
-      },
-      {
-        "id": 1708531679554,
-        "lat": 621.328125,
-        "lng": 462.859375,
-        "name": "Toluene 1",
-        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209892029320929310/image.png?ex=65e892c2&is=65d61dc2&hm=cca53397618eb696922c3fa9f566b726a2644d512bb0b6ec60a4b9a75ed4994e&=&format=webp&quality=lossless&width=538&height=524",
-        "notes": ""
-      },
-      {
-        "id": 1708531710643,
-        "lat": 620.203125,
-        "lng": 459.640625,
-        "name": "Toluene 2",
-        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209881516306337852/image.png?ex=65e888f7&is=65d613f7&hm=ceda57d5fab9a0ef58e9706809e28d7520322655f33e2a02db3cc2715d9f791c&=&format=webp&quality=lossless&width=359&height=386",
-        "notes": ""
-      },
-      {
-        "id": 1708531727940,
-        "lat": 620.984375,
-        "lng": 460.5625,
-        "name": "Toluene 3",
-        "img": "https://media.discordapp.net/attachments/872877063168733225/1209898084402995280/image.png?ex=65e89866&is=65d62366&hm=edbe1f50e901819c1533ad0017c7feaf3827201e22e5d72fb09ff71f98bc02eb&=&format=webp&quality=lossless&width=339&height=314",
-        "notes": ""
-      },
-      {
-        "id": 1708532295684,
-        "lat": 700.546875,
-        "lng": 615.234375,
-        "name": "Random Bench",
-        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209795618025766983/image.png?ex=65e838f8&is=65d5c3f8&hm=19de2962d2943447c7ff0d6ec1461ae17696cdba6ae4c1bfd69c7d930659585e&=&format=webp&quality=lossless&width=482&height=314",
-        "notes": ""
-      },
-      {
-        "id": 1708532335782,
-        "lat": 148.859375,
-        "lng": 528.765625,
-        "name": "Boot Legging",
-        "img": "https://media.discordapp.net/attachments/1142875804158660758/1209784466097176576/image.png?ex=65e82e95&is=65d5b995&hm=bd7ef24606f93812481e0aba47d17356cc7da14c47f691b1d5fae73f84896375&=&format=webp&quality=lossless&width=411&height=314",
-        "notes": ""
-      },
-      {
-        "id": 1708532370467,
-        "lat": 341.484375,
-        "lng": 274.46875,
-        "name": "Cargo Heist",
-        "img": "",
-        "notes": "Inside of the maze!"
-      },
-      {
-        "id": 1708532410444,
-        "lat": 254.8125,
-        "lng": 489.40625,
-        "name": "Digital Den",
-        "img": "",
-        "notes": "On The Roof! "
-      },
-      {
-        "id": 1708532438305,
-        "lat": 153.875,
-        "lng": 371.28125,
-        "name": "Cargo",
-        "img": "https://images-ext-2.discordapp.net/external/h08ZNtDx1UDAdWRYmMixmzblx9WrMawq1vDWWDasJ78/https/i.imgur.com/qgiEUO4.png?format=webp&quality=lossless&width=359&height=202",
-        "notes": "Cleans Money"
-      }
-  ];
+var categories = {
+    "Meth Chemicals": {
+        color: "red",
+        locations: [
+            { "id": 1708531470118, "lat": 627.96875, "lng": 465.921875, "name": "Glycol 1", "img": "https://i.ibb.co/gtzLq6Z/6c2c344477b0d0e67f3b70796a9f2374.png" },
+            { "id": 1708531506637, "lat": 627.4921875, "lng": 465.625, "name": "Glycol 2", "img": "path/to/glycol2.jpg" },
+            { "id": 1708531524416, "lat": 627.234375, "lng": 466.296875, "name": "Glycol 3", "img": "path/to/glycol3.jpg" },
+            { "id": 1708531561051, "lat": 623.3125, "lng": 464.765625, "name": "Sodium 1", "img": "path/to/sodium1.jpg" },
+            { "id": 1708531580864, "lat": 622.8046875, "lng": 464.4765625, "name": "Sodium 2", "img": "path/to/sodium2.jpg" },
+            { "id": 1708531646823, "lat": 622.2890625, "lng": 463.7890625, "name": "Sodium 3", "img": "path/to/sodium3.jpg" },
+            { "id": 1708531679554, "lat": 621.328125, "lng": 462.859375, "name": "Toluene 1", "img": "path/to/toluene1.jpg" },
+            { "id": 1708531710643, "lat": 620.203125, "lng": 459.640625, "name": "Toluene 2", "img": "path/to/toluene2.jpg" },
+            { "id": 1708531727940, "lat": 620.984375, "lng": 460.5625, "name": "Toluene 3", "img": "path/to/toluene3.jpg" },
+            {"id":1728135982026,"lat":"725.640625","lng":"654.718750","name":"Toluene/Sodium 2x","img":"https://i.ibb.co/ZNrsR2S/4be9ad4b3178001736b0e1efc75a8f2c.png"},
+            {"id":1728136060708,"lat":"725.566406","lng":"655.667969","name":"Toluene/Sodium","img":"https://i.ibb.co/h7RFR0C/26a3d629eccc17f92a12b6868c36b394.png"},
+            {"id":1728136112305,"lat":"726.437500","lng":"654.890625","name":"Glycol","img":"https://i.ibb.co/9q2cNvT/image.png"},
+            {"id":1728136161776,"lat":"725.652344","lng":"655.527344","name":"Glycol","img":"https://i.ibb.co/KFFxS6h/8190fce6418312bbcebe5727d63b5f3a.png"},
+            {"id":1728136202435,"lat":"725.847656","lng":"656.507813","name":"Glycol","img":"https://i.ibb.co/mFgtxMK/40220ad36a48369f7c27c364fa615aab.png"}
+        ]
+    },
+    "Container Guy": {
+        color: "blue",
+        locations: [
+            {"id":1728131469823,"lat":"845.906250","lng":"518.000000","name":"1","img":"https://i.ibb.co/9qhspXV/image.png"},
+            {"id":1728131526398,"lat":"239.953125","lng":"421.484375","name":"2","img":"https://i.ibb.co/YXy1GvP/image.png"},
+            {"id":1728131565702,"lat":"341.156250","lng":"276.843750","name":"3","img":"https://i.ibb.co/6m3wkzy/image.png"},
+            {"id":1728131602255,"lat":"438.890625","lng":"682.687500","name":"4","img":"https://i.ibb.co/svBtkT4/image.png"},
+            {"id":1728131754653,"lat":"358.656250","lng":"428.281250","name":"5","img":"https://i.ibb.co/QjjsKbW/image.png"},
+            {"id":1728131875773,"lat":"297.687500","lng":"466.687500","name":"6","img":"https://i.ibb.co/PczXYpT/image.png"},
+            {"id":1728132350441,"lat":"263.875000","lng":"569.687500","name":"7","img":"https://i.ibb.co/r2ywBwp/image.png"},
+            {"id":1728132612973,"lat":"74.062500","lng":"479.937500","name":"8","img":"https://i.ibb.co/bFDc9kb/image.png"},
+            {"id":1728132713084,"lat":"548.843750","lng":"473.343750","name":"9","img":"https://i.ibb.co/Jz2RFD2/image.png"}
+        ]
+    },
+    "Money Cleaning": {
+        color: "Green",
+        locations: [
+            {"id":1728132927577,"lat":"265.937500","lng":"516.000000","name":"Cargo","img":"https://i.ibb.co/f4qZjkn/image.png"}
+        ]
+    },
+    "Chop": {
+        color: "Gray",
+        locations: [
+            {"id":1728133055654,"lat":"545.625000","lng":"373.312500","name":"Chop Guy","img":"https://i.ibb.co/NnBHCMQ/b5934b71f0830398a50e17b1a147668f.png"},
+            {"id":1728133119599,"lat":"370.875000","lng":"296.125000","name":"Chop Sell","img":"https://i.ibb.co/MRTV4P1/906c66619241488049d32f3c70800de1.png"}
+        ]
+    },
+    "Acetone": {
+        color: "Orange",
+        locations: [
+            {"id":1728133364403,"lat":"190.390625","lng":"584.515625","name":"Acetone","img":"https://i.ibb.co/dBxrcxL/image.png"},
+            {"id":1728133466405,"lat":"186.250000","lng":"587.546875","name":"Acetone","img":"https://i.ibb.co/tMtvYRZ/image.png"},
+            {"id":1728133484415,"lat":"187.562500","lng":"587.875000","name":"Acetone","img":"https://i.ibb.co/b3Rm255/image.png"},
+            {"id":1728133609064,"lat":"106.046875","lng":"462.187500","name":"Acetone","img":"https://i.ibb.co/SvTGgKw/image.png"},
+            {"id":1728133631190,"lat":"105.890625","lng":"462.171875","name":"Acetone","img":"https://i.ibb.co/Fhb8WP7/image.png"},
+            {"id":1728133660342,"lat":"106.917969","lng":"460.089844","name":"Acetone","img":"https://i.ibb.co/r23FnJH/image.png"},
+            {"id":1728134038163,"lat":"557.500000","lng":"485.343750","name":"Acetone","img":"https://i.ibb.co/ZMLS6MJ/image.png"},
+            {"id":1728134075335,"lat":"557.968750","lng":"485.187500","name":"Acetone","img":"ttps://i.ibb.co/9nc9t1B/image.png"},
+            {"id":1728134119523,"lat":"556.437500","lng":"479.750000","name":"Acetone","img":"https://i.ibb.co/zRw75CM/image.png"}
+        ]
+    }
+};
 
-var isSetLocationsDisplayed = false;
-var markersMap = {}; // Mapping between IDs and marker objects
+
+var bounds = [[0, 0], [1000, 1000]];
+L.imageOverlay('gta5map.png', bounds).addTo(map);
+map.fitBounds(bounds);
+
+loadCategories();
+
+function loadCategories() {
+    var locationsListContainer = document.getElementById('locations-list');
+    locationsListContainer.innerHTML = '<h1 class="locations-title">Crime Categories</h1>';
+
+    for (var category in categories) {
+        let categoryData = categories[category];
+        let categoryColor = categoryData.color;
+
+        // Create a div for the category name and color
+        var categoryContainer = document.createElement('div');
+        categoryContainer.className = 'category-container';
+
+        // Create a color indicator (a small circle or square)
+        var colorIndicator = document.createElement('div');
+        colorIndicator.className = 'color-indicator';
+        colorIndicator.style.backgroundColor = categoryColor; // Set background color based on category
+
+        // Create the category name text
+        var categoryName = document.createElement('span');
+        categoryName.textContent = category;
+
+        // Append color indicator and category name to the container
+        categoryContainer.appendChild(colorIndicator);
+        categoryContainer.appendChild(categoryName);
+
+        // Create accordion button for each category
+        var accordionButton = document.createElement('button');
+        accordionButton.className = 'accordion';
+        accordionButton.appendChild(categoryContainer);
+        locationsListContainer.appendChild(accordionButton);
+
+        // Create a panel to contain the locations
+        var panel = document.createElement('div');
+        panel.className = 'panel';
+
+        categoryData.locations.forEach(function(location) {
+            // Create a custom divIcon with an SVG pin for the marker
+            var icon = L.divIcon({
+                className: 'custom-div-icon',
+                html: getPinSVG(categoryColor), // Use the SVG function to inject the correct color
+                iconSize: [24, 24],
+                popupAnchor: [0, -10]
+            });
+
+            // Create a marker with the custom icon
+            var marker = L.marker([location.lat, location.lng], { icon: icon, title: location.name }).addTo(map);
+
+            // Create popup content with name and image
+            var popupContent = `
+                <h1>${location.name}</h1>
+                <img src="${location.img}" alt="${location.name}" style="width: 100%; height: auto; cursor: pointer;" class="popup-image" />
+                <p>Click the image to enlarge</p>
+            `;
+            marker.bindPopup(popupContent);
+
+            // Add location to the panel
+            var listItem = document.createElement('div');
+            listItem.className = 'locations-item';
+            listItem.textContent = location.name;
+            listItem.onclick = function () {
+                map.setView([location.lat, location.lng]);
+                marker.openPopup();
+            };
+            panel.appendChild(listItem);
+        });
+
+        locationsListContainer.appendChild(panel);
+
+        // Add click event to the accordion button to toggle the panel visibility
+        accordionButton.addEventListener('click', function() {
+            this.classList.toggle('active');
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+}
+
+
+
+// Function to open the modal and show the clicked image
+function openModal(imageSrc) {
+    var modal = document.getElementById("image-modal");
+    var modalImg = document.getElementById("modal-image");
+    
+    modal.style.display = "block";
+    modalImg.src = imageSrc;
+
+    // Close the modal when the user clicks on the close button or outside the image
+    var closeBtn = document.getElementsByClassName("modal-close")[0];
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Close the modal if the user clicks anywhere outside the image
+    modal.onclick = function() {
+        modal.style.display = "none";
+    }
+}
+
+map.on('dblclick', function(e) {
+    createMarkerWithPopup(e.latlng);
+});
+
 var isCreatingMarker = false;
-var bounds = [[0,0], [1000,1000]];
-var image = L.imageOverlay('gta5map.png', bounds).addTo(map);
-
 var cameraIcon = L.divIcon({
-    html: '<i class="fas fa-camera"></i>',
+    html: '<i class="fas fa-map-pin"></i>',
     iconSize: [25, 25],
     className: 'leaflet-div-icon'
 });
 
+function createMarkerWithPopup(latlng) {
+    console.log("Creating marker at latlng: ", latlng);
 
-map.fitBounds(bounds);
-loadLocations();
+    var marker = L.marker(latlng, { draggable: true }).addTo(map);
 
-var createMarkerControl = L.control({position: 'topleft'});
-createMarkerControl.onAdd = function (map) {
-    var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
-    var link = L.DomUtil.create('a', 'leaflet-bar-part', container);
-    var icon = L.DomUtil.create('i', 'fas fa-map-pin', link);
-
-    link.href = '#';
-    link.title = 'Create Marker';
-
-    link.onclick = function(e) {
-        isCreatingMarker = !isCreatingMarker;
-        icon.className = isCreatingMarker ? 'fas fa-map-pin active' : 'fas fa-map-pin';
-        L.DomEvent.stopPropagation(e);
-        return false;
-    };
-
-    return container;
-};
-createMarkerControl.addTo(map);
-
-var createMarkerControl = L.control({position: 'topleft'});
-createMarkerControl.onAdd = function (map) {
-    var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
-    var link = L.DomUtil.create('a', 'leaflet-bar-part', container);
-    var icon = L.DomUtil.create('i', 'fas fa-cog', link);
-
-    link.href = '#';
-    link.title = 'Settings';
-
-    link.onclick = function(e) {
-        showOptionsWindow(); // Show the options window when cogwheel button is clicked
-        L.DomEvent.stopPropagation(e);
-    };
-
-    return container;
-};
-createMarkerControl.addTo(map);
-
-document.getElementById('export-button').addEventListener('click', function() {
-    var savedLocations = JSON.parse(localStorage.getItem('locations') || '[]');
-    var exportData = JSON.stringify(savedLocations, null, 2);
-
-    var blob = new Blob([exportData], { type: 'application/json' });
-    var url = URL.createObjectURL(blob);
-
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = 'locations.json';
-    a.click();
-
-    URL.revokeObjectURL(url);
-});
-
-document.getElementById('import-button').addEventListener('click', function() {
-    var fileInput = document.getElementById('import-file');
-    if (fileInput.files.length === 0) {
-        alert('Please select a file to import.');
-        return;
-    }
-
-    var file = fileInput.files[0];
-    var reader = new FileReader();
-
-    reader.onload = function(event) {
-        try {
-            var importedData = JSON.parse(event.target.result);
-            var savedLocations = JSON.parse(localStorage.getItem('locations') || '[]');
-
-            // Determine whether to replace or add imported locations
-            var replaceExisting = confirm("Do you want to replace existing locations with imported ones?");
-            
-            if (replaceExisting) {
-                savedLocations = importedData; // Replace with imported data
-            } else {
-                savedLocations = savedLocations.concat(importedData); // Add imported data
-            }
-
-            localStorage.setItem('locations', JSON.stringify(savedLocations));
-            loadLocations();
-            alert('Locations imported successfully.');
-        } catch (error) {
-            alert('Error importing locations. Please make sure the file contains valid JSON data.');
-        }
-    };
-
-    reader.readAsText(file);
-});
-
-// Show the options window
-function showOptionsWindow() {
-    var optionsContainer = document.getElementById('options-container');
-    optionsContainer.classList.remove('hidden');
-}
-
-// Hide the options window
-function hideOptionsWindow() {
-    var optionsContainer = document.getElementById('options-container');
-    optionsContainer.classList.add('hidden');
-}
-
-// Close options button
-document.getElementById('close-options-button').addEventListener('click', function() {
-    hideOptionsWindow();
-});
-
-function createPopupContent(marker) {
-    var container = L.DomUtil.create('div', 'popup-container'),
-        imgPreview = L.DomUtil.create('img', 'popup-img', container),
-        notesContainer = L.DomUtil.create('div', 'popup-notes', container);
-
-    // Check if the marker is a set location
-    if (marker.isSetLocation) {
-        var setLocationData = setLocations.find(function(location) {
-            return location.name === marker.options.title;
-        });
-
-        // Display the name, image, and notes from the setLocations data
-        var nameHeader = L.DomUtil.create('h1', 'popup-header', container);
-        nameHeader.textContent = setLocationData.name || '';
-
-        if (setLocationData.img) {
-            imgPreview.src = setLocationData.img;
-        }
-
-        if (setLocationData.notes) {
-            notesContainer.textContent = setLocationData.notes || '';
-        }
-
-        container.appendChild(imgPreview);
-        container.appendChild(nameHeader);
-        container.appendChild(notesContainer);
+    if (marker) {
+        console.log("Marker created and added to map.");
     } else {
-        var nameInput = L.DomUtil.create('input', 'popup-input', container),
-            imgInput = L.DomUtil.create('input', 'popup-input', container),
-            notesInput = L.DomUtil.create('textarea', 'popup-input', container),
-            deleteButton = L.DomUtil.create('button', 'popup-button red', container),
-            saveButton = L.DomUtil.create('button', 'popup-button green', container);
-
-        nameInput.type = 'text';
-        nameInput.placeholder = 'Location Name';
-        nameInput.value = marker.name || '';
-
-        imgInput.type = 'text';
-        imgInput.placeholder = 'Image URL';
-        imgInput.value = marker.img || '';
-
-        notesInput.rows = '3';
-        notesInput.placeholder = 'Notes';
-        notesInput.value = marker.notes || '';
-
-        if (marker.img) {
-            imgPreview.src = marker.img;
-        }
-
-        imgPreview.onclick = function() {
-            openImagePreview(marker.img);
-        };
-
-        deleteButton.innerHTML = 'Delete';
-        deleteButton.onclick = function() {
-            map.removeLayer(marker);
-            deleteLocation(marker.getLatLng());
-        };
-
-        saveButton.innerHTML = 'Save';
-        saveButton.onclick = function() {
-            marker.name = nameInput.value;
-            marker.img = imgInput.value;
-            marker.notes = notesInput.value;
-            imgPreview.src = imgInput.value;
-            marker.setPopupContent(container);
-            marker.options.title = nameInput.value;
-            marker.unbindTooltip().bindTooltip(nameInput.value).openTooltip();
-            saveLocation(marker.getLatLng(), marker.name, marker.img, marker.notes, marker.id);
-            updateLocationsList();
-        };
-
-        container.appendChild(nameInput);
-        container.appendChild(imgInput);
-        container.appendChild(notesInput);
-        container.appendChild(imgPreview);
-        container.appendChild(deleteButton);
-        container.appendChild(saveButton);
+        console.error("Failed to create marker.");
     }
 
-    return container;
-}
+    // Create a form in the popup to input the Name and Picture URL
+    var popupContent = `
+        <div>
+            <label for="marker-name">Name:</label><br>
+            <input id="marker-name" type="text" placeholder="Enter location name"/><br>
+            <label for="marker-img">Image URL:</label><br>
+            <input id="marker-img" type="text" placeholder="Enter image URL"/><br><br>
+            <button id="copy-marker">Copy to Clipboard</button>
+        </div>
+    `;
 
-
-
-function openImagePreview(src) {
-    var previewContainer = document.createElement('div');
-    previewContainer.style.position = 'fixed';
-    previewContainer.style.left = '0';
-    previewContainer.style.top = '0';
-    previewContainer.style.width = '100%';
-    previewContainer.style.height = '100%';
-    previewContainer.style.backgroundColor = 'rgba(0,0,0,0.8)';
-    previewContainer.style.display = 'flex';
-    previewContainer.style.justifyContent = 'center';
-    previewContainer.style.alignItems = 'center';
-    previewContainer.style.zIndex = '1000';
-
-    var previewImage = document.createElement('img');
-    previewImage.src = src;
-    previewImage.style.maxWidth = '80%';
-    previewImage.style.maxHeight = '80%';
-    previewContainer.appendChild(previewImage);
-
-    previewContainer.onclick = function() {
-        document.body.removeChild(previewContainer);
-    };
-
-    document.body.appendChild(previewContainer);
-}
-
-function saveLocation(latlng, name, img, notes, id) {
-    var savedLocations = JSON.parse(localStorage.getItem('locations') || '[]');
-    var existingLocation = savedLocations.find(location => location.id === id);
-
-    if (existingLocation) {
-        existingLocation.name = name;
-        existingLocation.img = img;
-        existingLocation.notes = notes;
-
-        // Update the markersMap entry with the updated marker
-        if (markersMap[id]) {
-            markersMap[id].name = name;
-            markersMap[id].img = img;
-            markersMap[id].notes = notes;
-        }
-    } else {
-        savedLocations.push({
-            id: id,
-            lat: latlng.lat,
-            lng: latlng.lng,
-            name: name,
-            img: img,
-            notes: notes
-        });
-
-        // Create a new marker and add it to markersMap
-        var marker = L.marker([latlng.lat, latlng.lng], { title: name, icon: cameraIcon }).addTo(map);
-        marker.id = id;
-        marker.name = name;
-        marker.img = img;
-        marker.notes = notes;
-        marker.bindPopup(createPopupContent(marker));
-        markersMap[id] = marker; // Add the marker to markersMap
-    }
-
-    localStorage.setItem('locations', JSON.stringify(savedLocations));
-}
-
-
-
-function loadLocations() {
-    var savedLocations = JSON.parse(localStorage.getItem('locations') || '[]');
-    savedLocations.forEach(function(location) {
-        var marker = L.marker([location.lat, location.lng], { title: location.name, icon: cameraIcon }).addTo(map);
-        marker.id = location.id;
-        marker.name = location.name;
-        marker.img = location.img;
-        marker.notes = location.notes;
-        marker.bindPopup(createPopupContent(marker));
-
-        markersMap[location.id] = marker; // Add the marker to the markersMap
-    });
-
-    updateLocationsList();
-}
-
-
-  
-function updateLocationsList() {
-    var locationsListContainer = document.getElementById('locations-list');
-    var savedLocations = JSON.parse(localStorage.getItem('locations') || '[]');
-
-    // Clear previous locations, but keep the title
-    locationsListContainer.innerHTML = '<h1 class="locations-title">Location List</h1>';
-
-    savedLocations.forEach(function(location) {
-        var listItem = document.createElement('div');
-        listItem.className = 'location-item';
-        listItem.textContent = location.name;
-        listItem.onclick = function() {
-            map.setView([location.lat, location.lng]);
-            markersMap[location.id].openPopup(); // Open the popup for the clicked location
-        };
-        locationsListContainer.appendChild(listItem);
-    });
-}
-
-
-  
-function deleteLocation(latlng) {
-    var savedLocations = JSON.parse(localStorage.getItem('locations') || '[]');
-    savedLocations = savedLocations.filter(function(location) {
-        return location.lat !== latlng.lat || location.lng !== latlng.lng;
-    });
-    localStorage.setItem('locations', JSON.stringify(savedLocations));
-    updateLocationsList();
-}
-
-function onMapClick(e) {
-    if (isCreatingMarker) {
-        if (map.dragging) {
-            map.dragging.disable(); // Disable dragging to prevent accidental clicks
-        }
-
-        var id = Date.now(); // or use another method to generate a unique ID
-        var marker = L.marker(e.latlng, { icon: cameraIcon }).addTo(map);
-        marker.id = id; // Assign the ID to the marker
-        marker.bindPopup(createPopupContent(marker)).openPopup();
-
-        // Add a one-time click listener to the map to cancel marker creation
-        map.once('click', function (cancelEvent) {
-            map.dragging.enable(); // Re-enable dragging
-            map.removeLayer(marker); // Remove the newly created marker
-        });
-    } else {
-        map.closePopup();
-    }
-}
-
-function toggleSetLocations() {
-    var locationsListContainer = document.getElementById('locations-list');
+    // Bind the popup to the marker
+    marker.bindPopup(popupContent);
     
-    if (isSetLocationsDisplayed) {
-      // Remove set location markers from the map
-      setLocations.forEach(function(location) {
-        if (markersMap[location.name]) {
-          map.removeLayer(markersMap[location.name]);
-        }
-      });
-      locationsListContainer.innerHTML = ''; // Clear the list
-      isSetLocationsDisplayed = false;
-      updateLocationsList();
-    } else {
-      // Add set location markers to the map and list
-      locationsListContainer.innerHTML = ''; // Clear the list
-      locationsListContainer.innerHTML = '<h1 class="locations-title">Crime Locations</h1>';
-      setLocations.forEach(function(location) {
-        var marker = L.marker([location.lat, location.lng], { title: location.name }).addTo(map);
-        marker.isSetLocation = true;
-  
-        // Create a popup for the set location
-        var popupContent = createPopupContent(marker);
-        marker.bindPopup(popupContent);
-  
-        markersMap[location.name] = marker;
-  
-        // Add the marker to the map
-        marker.addTo(map);
-  
-        // Add the set location to the locations list
-        var listItem = document.createElement('div');
-        listItem.className = 'location-item';
-        listItem.textContent = location.name;
-        listItem.onclick = function() {
-            map.setView([location.lat, location.lng]);
-            marker.openPopup();
-        };
-        locationsListContainer.appendChild(listItem);
-      });
-      isSetLocationsDisplayed = true;
-    }
-  }
+    // Explicitly open the popup
+    setTimeout(function() {
+        marker.openPopup();
+        console.log("Attempting to open popup.");
+    }, 50); // Slight delay to allow the marker to render properly
 
-  document.getElementById('toggle-set-locations-button').addEventListener('click', function() {
-    toggleSetLocations();
-  });
+    // Check if popupopen event gets triggered
+    marker.on('popupopen', function() {
+        console.log("Popup opened, attaching event listener to the button.");
 
-map.on('click', onMapClick);
-map.fitBounds(bounds);
-map.setZoom(1); // Set the zoom level after fitting to bounds
+        // Delay for DOM rendering
+        setTimeout(function() {
+            var copyButton = document.getElementById('copy-marker');
+            
+            if (copyButton) {
+                console.log("Copy button found, attaching click event.");
+
+                copyButton.addEventListener('click', function() {
+                    var name = document.getElementById('marker-name').value;
+                    var imgUrl = document.getElementById('marker-img').value;
+
+                    var markerData = {
+                        id: Date.now(),
+                        lat: latlng.lat.toFixed(6),
+                        lng: latlng.lng.toFixed(6),
+                        name: name,
+                        img: imgUrl
+                    };
+
+                    var formattedData = JSON.stringify(markerData);
+                    copyToClipboard(formattedData);
+
+                    marker.bindPopup(`<p>Marker copied to clipboard!</p>`).openPopup();
+
+                    setTimeout(() => {
+                        map.removeLayer(marker);
+                    }, 1500);
+                });
+            } else {
+                console.error("Copy button not found.");
+            }
+        }, 10);
+    });
+
+    marker.on('popupclose', function() {
+        console.log("Popup closed, removing marker.");
+        map.removeLayer(marker);
+    });
+}
+
+// Function to copy text to clipboard using modern clipboard API
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(function() {
+        console.log('Copied to clipboard successfully!');
+    }).catch(function(err) {
+        console.error('Failed to copy text to clipboard: ', err);
+        alert('Copying to clipboard failed. Ensure you are using HTTPS or localhost.');
+    });
+}
+
+function getPinSVG(color) {
+    return `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32px" height="32px" fill="${color}" stroke="black" stroke-width="1.5">
+            <path d="M12 2C8.69 2 6 4.69 6 8c0 4.27 5.25 11.54 5.42 11.75.3.36.85.36 1.15 0C12.75 19.54 18 12.27 18 8c0-3.31-2.69-6-6-6zm0 9.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 4.5 12 4.5 15.5 6.07 15.5 8 13.93 11.5 12 11.5z"/>
+        </svg>
+    `;
+}
+
+
+
+
+map.setZoom(1);

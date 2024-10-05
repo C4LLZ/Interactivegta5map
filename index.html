@@ -21,8 +21,15 @@
             <button id="import-button" class="popup-button">Import</button>
             <input id="import-file" class="popup-input" type="file" accept="application/json">
             <button id="toggle-set-locations-button" class="popup-button">Crime Locations</button>
+            <button id="create-marker-button" class="popup-button">Create Marker</button>
             <button id="close-options-button">Close</button>
-    </div>    
+    </div>
+        <!-- Modal container -->
+    <div id="image-modal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modal-image">
+    </div>
+
     <script src="map.js"></script>
 </body>
 </html>
