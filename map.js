@@ -64,7 +64,12 @@ var categories = {
             {"id":1728133660342,"lat":"106.917969","lng":"460.089844","name":"Acetone","img":"https://i.ibb.co/r23FnJH/image.png"},
             {"id":1728134038163,"lat":"557.500000","lng":"485.343750","name":"Acetone","img":"https://i.ibb.co/ZMLS6MJ/image.png"},
             {"id":1728134075335,"lat":"557.968750","lng":"485.187500","name":"Acetone","img":"ttps://i.ibb.co/9nc9t1B/image.png"},
-            {"id":1728134119523,"lat":"556.437500","lng":"479.750000","name":"Acetone","img":"https://i.ibb.co/zRw75CM/image.png"}
+            {"id":1728134119523,"lat":"556.437500","lng":"479.750000","name":"Acetone","img":"https://i.ibb.co/zRw75CM/image.png"},
+            {"id":1728154331986,"lat":"131.476563","lng":"869.593750","name":"Acetone","img":"https://i.ibb.co/WGbJNWF/image.png"},
+            {"id":1728154375624,"lat":"132.078125","lng":"869.156250","name":"Acetone","img":"https://i.ibb.co/VHmb9vL/image.png"},
+            {"id":1728154411524,"lat":"136.906250","lng":"866.843750","name":"Acetone","img":"https://i.ibb.co/Z87m2N0/image.png"},
+            {"id":1728154824353,"lat":"218.359375","lng":"896.265625","name":"Acetone","img":"https://i.ibb.co/zHk6HLy/image.png"},
+            {"id":1728154854878,"lat":"218.875000","lng":"895.890625","name":"Acetone","img":"https://i.ibb.co/HNJfJHx/image.png"}
         ]
     },
     "Digital Den": {
@@ -128,7 +133,23 @@ var categories = {
             {"id":1728151937165,"lat":"507.000000","lng":"627.750000","name":"Jailbreak Thermite","img":"https://i.ibb.co/3fQDnk1/image.png"},
             {"id":1728152062514,"lat":"734.062500","lng":"665.968750","name":"Jailbreak Thermite","img":"https://i.ibb.co/ZzbP092/image.png"}
         ]
-    }
+    },
+    "Coke Stuff": {
+        color:"#cccbc8",
+        locations: [
+            {"id":1728154153969,"lat":"142.500000","lng":"905.218750","name":"Coke Lab","img":"https://i.ibb.co/tqr8vPq/image.png"},
+            {"id":1728154645804,"lat":"216.828125","lng":"898.578125","name":"Fuel","img":"https://i.ibb.co/7yyJZgQ/image.png"},
+            {"id":1728154699904,"lat":"215.578125","lng":"898.796875","name":"Fuel","img":"https://i.ibb.co/vPd45q3/image.png"},
+            {"id":1728154920498,"lat":"214.140625","lng":"897.453125","name":"Fuel","img":"https://i.ibb.co/cwt7m6J/image.png"},
+            {"id":1728155436015,"lat":"76.312500","lng":"932.125000","name":"Leaves Field","img":"https://i.ibb.co/ZX5WWRp/image.png"}
+        ]
+    },
+    "Opium Stuff": {
+        color:"#574b27",
+        locations: [
+            {"id":1728154472558,"lat":"136.656250","lng":"885.250000","name":"Opium Bench","img":"https://i.ibb.co/d0BYRBx/image.png"}
+        ]
+    },
     
 };
 
