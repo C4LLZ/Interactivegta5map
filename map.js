@@ -100,10 +100,18 @@ var categories = {
         ]
     },
     "Misc": {
-        color: "pink",
+        color: "#f0b4ec",
         locations: [
             {"id":1728139997572,"lat":"324.812500","lng":"592.375000","name":"Grandmas","img":"https://i.ibb.co/rQ0TWyC/image.png"},
-            {"id":1728142671618,"lat":"79.281250","lng":"507.062500","name":"House Sell Guy","img":"https://i.ibb.co/Pxt596z/image.png"}
+            {"id":1728142671618,"lat":"79.281250","lng":"507.062500","name":"House Sell Guy","img":"https://i.ibb.co/Pxt596z/image.png"},
+            {"id":1728149158602,"lat":"821.500000","lng":"230.000000","name":"Oil Rig","img":"https://i.ibb.co/RhJWBV8/image.png"}
+        ]
+    },
+    "Tradeables": {
+        color: "#e0daba",
+        locations: [
+            {"id":1728148874962,"lat":"756.023438","lng":"411.070313","name":"Hatchet Dude","img":"https://i.ibb.co/cX92ZV1/image.png"},
+            {"id":1728149302309,"lat":"669.250000","lng":"281.000000","name":"Pool Cue Guy","img":"https://i.ibb.co/3r2ThBP/image.png"}
         ]
     },
     
