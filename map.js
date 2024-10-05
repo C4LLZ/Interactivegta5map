@@ -80,7 +80,7 @@ var categories = {
         locations: [
             {"id":1728139682314,"lat":"164.656250","lng":"475.187500","name":"Trap House","img":"https://i.ibb.co/PMw9JFd/image.png"},
             {"id":1728139825785,"lat":"182.906250","lng":"559.687500","name":"Trap house","img":"https://i.ibb.co/svG67x3/image.png"},
-            {"id":1728144794117,"lat":"823.812500","lng":"434.562500","name":"Trap House","img":""},
+            {"id":1728144794117,"lat":"823.812500","lng":"434.562500","name":"Trap House","img":"https://i.ibb.co/vVrxVR8/image.png"},
             {"id":1728147837777,"lat":"639.281250","lng":"611.093750","name":"Sandy Traphouse","img":"https://i.ibb.co/vzjywMZ/image.png"},
         ]
     },
@@ -94,7 +94,9 @@ var categories = {
             {"id":1728147693872,"lat":"629.671875","lng":"588.671875","name":"Meth Lab","img":"https://i.ibb.co/cQTqhgF/image.png"},
             {"id":1728147938869,"lat":"651.718750","lng":"655.562500","name":"Meth Lab","img":"https://i.ibb.co/tL30X9T/image.png"},
             {"id":1728148050556,"lat":"725.656250","lng":"660.468750","name":"Meth Lab","img":"https://i.ibb.co/fNVtbyj/image.png"},
-            {"id":1728148124344,"lat":"719.343750","lng":"646.390625","name":"Meth Lab","img":"https://i.ibb.co/866YmVn/image.png"}
+            {"id":1728148124344,"lat":"719.343750","lng":"646.390625","name":"Meth Lab","img":"https://i.ibb.co/866YmVn/image.png"},
+            {"id":1728148255693,"lat":"835.812500","lng":"581.281250","name":"Meth Lab","img":"https://i.ibb.co/XCCQHLb/image.png"},
+            {"id":1728148560433,"lat":"852.750000","lng":"442.312500","name":"Meth Lab","img":"https://i.ibb.co/Mh7nBB7/image.png"}
         ]
     },
     "Misc": {
