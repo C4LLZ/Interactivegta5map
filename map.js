@@ -35,13 +35,15 @@ var categories = {
             {"id":1728131875773,"lat":"297.687500","lng":"466.687500","name":"6","img":"https://i.ibb.co/PczXYpT/image.png"},
             {"id":1728132350441,"lat":"263.875000","lng":"569.687500","name":"7","img":"https://i.ibb.co/r2ywBwp/image.png"},
             {"id":1728132612973,"lat":"74.062500","lng":"479.937500","name":"8","img":"https://i.ibb.co/bFDc9kb/image.png"},
-            {"id":1728132713084,"lat":"548.843750","lng":"473.343750","name":"9","img":"https://i.ibb.co/Jz2RFD2/image.png"}
+            {"id":1728132713084,"lat":"548.843750","lng":"473.343750","name":"9","img":"https://i.ibb.co/Jz2RFD2/image.png"},
+            {"id":1728149865235,"lat":"571.218750","lng":"647.000000","name":"Container Guy","img":"https://i.ibb.co/ChRhDvH/image.png"},
         ]
     },
     "Money Cleaning": {
         color: "Green",
         locations: [
-            {"id":1728132927577,"lat":"265.937500","lng":"516.000000","name":"Cargo","img":"https://i.ibb.co/f4qZjkn/image.png"}
+            {"id":1728132927577,"lat":"265.937500","lng":"516.000000","name":"Cargo","img":"https://i.ibb.co/f4qZjkn/image.png"},
+            {"id":1728149655732,"lat":"682.687500","lng":"765.562500","name":"Stripper Run","img":"https://i.ibb.co/h21Wcrh/image.png"},
         ]
     },
     "Chop": {
@@ -119,7 +121,7 @@ var categories = {
 
 
 var bounds = [[0, 0], [1000, 1000]];
-L.imageOverlay('gta5map.png', bounds).addTo(map);
+L.imageOverlay('Gta5MapCayo.png', bounds).addTo(map);
 map.fitBounds(bounds);
 
 loadCategories();
