@@ -106,7 +106,10 @@ var categories = {
         locations: [
             {"id":1728139997572,"lat":"324.812500","lng":"592.375000","name":"Grandmas","img":"https://i.ibb.co/rQ0TWyC/image.png"},
             {"id":1728142671618,"lat":"79.281250","lng":"507.062500","name":"House Sell Guy","img":"https://i.ibb.co/Pxt596z/image.png"},
-            {"id":1728149158602,"lat":"821.500000","lng":"230.000000","name":"Oil Rig","img":"https://i.ibb.co/RhJWBV8/image.png"}
+            {"id":1728149158602,"lat":"821.500000","lng":"230.000000","name":"Oil Rig","img":"https://i.ibb.co/RhJWBV8/image.png"},
+            {"id":1728151081924,"lat":"249.031250","lng":"515.375000","name":"Big Pawn","img":"https://i.ibb.co/hmH4r5J/image.png"},
+            {"id":1728151149593,"lat":"248.015625","lng":"515.375000","name":"Crypto Heist HDD","img":"https://i.ibb.co/c67Chkq/image.png"},
+            {"id":1728151300347,"lat":"192.593750","lng":"419.898438","name":"Small Pawn","img":"https://i.ibb.co/McG2wgw/image.png"}
         ]
     },
     "Tradeables": {
@@ -116,6 +119,16 @@ var categories = {
             {"id":1728149302309,"lat":"669.250000","lng":"281.000000","name":"Pool Cue Guy","img":"https://i.ibb.co/3r2ThBP/image.png"}
         ]
     },
+    "Jailbreak": {
+        color:"#ebe834",
+        locations: [
+            {"id":1728151634909,"lat":"444.812500","lng":"656.187500","name":"Jailbreak Thermite","img":"https://i.ibb.co/6yMLyLx/image.png"},
+            {"id":1728151788362,"lat":"463.250000","lng":"643.500000","name":"Jailbreak Thermite","img":"https://i.ibb.co/xLT7T1W/image.png"},
+            {"id":1728151856468,"lat":"481.500000","lng":"630.750000","name":"Jailbreak Thermite","img":"https://i.ibb.co/F8DWBB8/image.png"},
+            {"id":1728151937165,"lat":"507.000000","lng":"627.750000","name":"Jailbreak Thermite","img":"https://i.ibb.co/3fQDnk1/image.png"},
+            {"id":1728152062514,"lat":"734.062500","lng":"665.968750","name":"Jailbreak Thermite","img":"https://i.ibb.co/ZzbP092/image.png"}
+        ]
+    }
     
 };
 
