@@ -5,25 +5,6 @@ var map = L.map('map', {
 });
 
 var categories = {
-    "Meth Chemicals": {
-        color: "red",
-        locations: [
-            { "id": 1708531470118, "lat": 627.96875, "lng": 465.921875, "name": "Glycol 1", "img": "https://i.ibb.co/gtzLq6Z/6c2c344477b0d0e67f3b70796a9f2374.png" },
-            { "id": 1708531506637, "lat": 627.4921875, "lng": 465.625, "name": "Glycol 2", "img": "path/to/glycol2.jpg" },
-            { "id": 1708531524416, "lat": 627.234375, "lng": 466.296875, "name": "Glycol 3", "img": "path/to/glycol3.jpg" },
-            { "id": 1708531561051, "lat": 623.3125, "lng": 464.765625, "name": "Sodium 1", "img": "path/to/sodium1.jpg" },
-            { "id": 1708531580864, "lat": 622.8046875, "lng": 464.4765625, "name": "Sodium 2", "img": "path/to/sodium2.jpg" },
-            { "id": 1708531646823, "lat": 622.2890625, "lng": 463.7890625, "name": "Sodium 3", "img": "path/to/sodium3.jpg" },
-            { "id": 1708531679554, "lat": 621.328125, "lng": 462.859375, "name": "Toluene 1", "img": "path/to/toluene1.jpg" },
-            { "id": 1708531710643, "lat": 620.203125, "lng": 459.640625, "name": "Toluene 2", "img": "path/to/toluene2.jpg" },
-            { "id": 1708531727940, "lat": 620.984375, "lng": 460.5625, "name": "Toluene 3", "img": "path/to/toluene3.jpg" },
-            {"id":1728135982026,"lat":"725.640625","lng":"654.718750","name":"Toluene/Sodium 2x","img":"https://i.ibb.co/ZNrsR2S/4be9ad4b3178001736b0e1efc75a8f2c.png"},
-            {"id":1728136060708,"lat":"725.566406","lng":"655.667969","name":"Toluene/Sodium","img":"https://i.ibb.co/h7RFR0C/26a3d629eccc17f92a12b6868c36b394.png"},
-            {"id":1728136112305,"lat":"726.437500","lng":"654.890625","name":"Glycol","img":"https://i.ibb.co/9q2cNvT/image.png"},
-            {"id":1728136161776,"lat":"725.652344","lng":"655.527344","name":"Glycol","img":"https://i.ibb.co/KFFxS6h/8190fce6418312bbcebe5727d63b5f3a.png"},
-            {"id":1728136202435,"lat":"725.847656","lng":"656.507813","name":"Glycol","img":"https://i.ibb.co/mFgtxMK/40220ad36a48369f7c27c364fa615aab.png"}
-        ]
-    },
     "Container Guy": {
         color: "blue",
         locations: [
@@ -53,25 +34,6 @@ var categories = {
             {"id":1728133119599,"lat":"370.875000","lng":"296.125000","name":"Chop Sell","img":"https://i.ibb.co/MRTV4P1/906c66619241488049d32f3c70800de1.png"}
         ]
     },
-    "Acetone": {
-        color: "Orange",
-        locations: [
-            {"id":1728133364403,"lat":"190.390625","lng":"584.515625","name":"Acetone","img":"https://i.ibb.co/dBxrcxL/image.png"},
-            {"id":1728133466405,"lat":"186.250000","lng":"587.546875","name":"Acetone","img":"https://i.ibb.co/tMtvYRZ/image.png"},
-            {"id":1728133484415,"lat":"187.562500","lng":"587.875000","name":"Acetone","img":"https://i.ibb.co/b3Rm255/image.png"},
-            {"id":1728133609064,"lat":"106.046875","lng":"462.187500","name":"Acetone","img":"https://i.ibb.co/SvTGgKw/image.png"},
-            {"id":1728133631190,"lat":"105.890625","lng":"462.171875","name":"Acetone","img":"https://i.ibb.co/Fhb8WP7/image.png"},
-            {"id":1728133660342,"lat":"106.917969","lng":"460.089844","name":"Acetone","img":"https://i.ibb.co/r23FnJH/image.png"},
-            {"id":1728134038163,"lat":"557.500000","lng":"485.343750","name":"Acetone","img":"https://i.ibb.co/ZMLS6MJ/image.png"},
-            {"id":1728134075335,"lat":"557.968750","lng":"485.187500","name":"Acetone","img":"ttps://i.ibb.co/9nc9t1B/image.png"},
-            {"id":1728134119523,"lat":"556.437500","lng":"479.750000","name":"Acetone","img":"https://i.ibb.co/zRw75CM/image.png"},
-            {"id":1728154331986,"lat":"131.476563","lng":"869.593750","name":"Acetone","img":"https://i.ibb.co/WGbJNWF/image.png"},
-            {"id":1728154375624,"lat":"132.078125","lng":"869.156250","name":"Acetone","img":"https://i.ibb.co/VHmb9vL/image.png"},
-            {"id":1728154411524,"lat":"136.906250","lng":"866.843750","name":"Acetone","img":"https://i.ibb.co/Z87m2N0/image.png"},
-            {"id":1728154824353,"lat":"218.359375","lng":"896.265625","name":"Acetone","img":"https://i.ibb.co/zHk6HLy/image.png"},
-            {"id":1728154854878,"lat":"218.875000","lng":"895.890625","name":"Acetone","img":"https://i.ibb.co/HNJfJHx/image.png"}
-        ]
-    },
     "Digital Den": {
         color: "Purple",
         locations: [
@@ -89,21 +51,6 @@ var categories = {
             {"id":1728139825785,"lat":"182.906250","lng":"559.687500","name":"Trap house","img":"https://i.ibb.co/svG67x3/image.png"},
             {"id":1728144794117,"lat":"823.812500","lng":"434.562500","name":"Trap House","img":"https://i.ibb.co/vVrxVR8/image.png"},
             {"id":1728147837777,"lat":"639.281250","lng":"611.093750","name":"Sandy Traphouse","img":"https://i.ibb.co/vzjywMZ/image.png"},
-        ]
-    },
-    "Meth Labs": {
-        color: "Cyan",
-        locations: [
-            {"id":1728147262215,"lat":"593.250000","lng":"648.750000","name":"Meth Lab","img":"https://i.ibb.co/JQt4Fj2/image.png"},
-            {"id":1728147375815,"lat":"574.375000","lng":"501.281250","name":"Meth Lab","img":"https://i.ibb.co/tP65zqJ/image.png"},
-            {"id":1728147460567,"lat":"580.843750","lng":"477.843750","name":"Meth Lab","img":"https://i.ibb.co/Z1Lf3GP/image.png"},
-            {"id":1728147589485,"lat":"597.718750","lng":"483.281250","name":"Meth Lab","img":" https://i.ibb.co/JBp9JH1/image.png"},
-            {"id":1728147693872,"lat":"629.671875","lng":"588.671875","name":"Meth Lab","img":"https://i.ibb.co/cQTqhgF/image.png"},
-            {"id":1728147938869,"lat":"651.718750","lng":"655.562500","name":"Meth Lab","img":"https://i.ibb.co/tL30X9T/image.png"},
-            {"id":1728148050556,"lat":"725.656250","lng":"660.468750","name":"Meth Lab","img":"https://i.ibb.co/fNVtbyj/image.png"},
-            {"id":1728148124344,"lat":"719.343750","lng":"646.390625","name":"Meth Lab","img":"https://i.ibb.co/866YmVn/image.png"},
-            {"id":1728148255693,"lat":"835.812500","lng":"581.281250","name":"Meth Lab","img":"https://i.ibb.co/XCCQHLb/image.png"},
-            {"id":1728148560433,"lat":"852.750000","lng":"442.312500","name":"Meth Lab","img":"https://i.ibb.co/Mh7nBB7/image.png"}
         ]
     },
     "Misc": {
@@ -132,6 +79,40 @@ var categories = {
             {"id":1728151856468,"lat":"481.500000","lng":"630.750000","name":"Jailbreak Thermite","img":"https://i.ibb.co/F8DWBB8/image.png"},
             {"id":1728151937165,"lat":"507.000000","lng":"627.750000","name":"Jailbreak Thermite","img":"https://i.ibb.co/3fQDnk1/image.png"},
             {"id":1728152062514,"lat":"734.062500","lng":"665.968750","name":"Jailbreak Thermite","img":"https://i.ibb.co/ZzbP092/image.png"}
+        ]
+    },
+    "Meth Labs": {
+        color: "Cyan",
+        locations: [
+            {"id":1728147262215,"lat":"593.250000","lng":"648.750000","name":"Meth Lab","img":"https://i.ibb.co/JQt4Fj2/image.png"},
+            {"id":1728147375815,"lat":"574.375000","lng":"501.281250","name":"Meth Lab","img":"https://i.ibb.co/tP65zqJ/image.png"},
+            {"id":1728147460567,"lat":"580.843750","lng":"477.843750","name":"Meth Lab","img":"https://i.ibb.co/Z1Lf3GP/image.png"},
+            {"id":1728147589485,"lat":"597.718750","lng":"483.281250","name":"Meth Lab","img":" https://i.ibb.co/JBp9JH1/image.png"},
+            {"id":1728147693872,"lat":"629.671875","lng":"588.671875","name":"Meth Lab","img":"https://i.ibb.co/cQTqhgF/image.png"},
+            {"id":1728147938869,"lat":"651.718750","lng":"655.562500","name":"Meth Lab","img":"https://i.ibb.co/tL30X9T/image.png"},
+            {"id":1728148050556,"lat":"725.656250","lng":"660.468750","name":"Meth Lab","img":"https://i.ibb.co/fNVtbyj/image.png"},
+            {"id":1728148124344,"lat":"719.343750","lng":"646.390625","name":"Meth Lab","img":"https://i.ibb.co/866YmVn/image.png"},
+            {"id":1728148255693,"lat":"835.812500","lng":"581.281250","name":"Meth Lab","img":"https://i.ibb.co/XCCQHLb/image.png"},
+            {"id":1728148560433,"lat":"852.750000","lng":"442.312500","name":"Meth Lab","img":"https://i.ibb.co/Mh7nBB7/image.png"}
+        ]
+    },
+    "Acetone": {
+        color: "Orange",
+        locations: [
+            {"id":1728133364403,"lat":"190.390625","lng":"584.515625","name":"Acetone","img":"https://i.ibb.co/dBxrcxL/image.png"},
+            {"id":1728133466405,"lat":"186.250000","lng":"587.546875","name":"Acetone","img":"https://i.ibb.co/tMtvYRZ/image.png"},
+            {"id":1728133484415,"lat":"187.562500","lng":"587.875000","name":"Acetone","img":"https://i.ibb.co/b3Rm255/image.png"},
+            {"id":1728133609064,"lat":"106.046875","lng":"462.187500","name":"Acetone","img":"https://i.ibb.co/SvTGgKw/image.png"},
+            {"id":1728133631190,"lat":"105.890625","lng":"462.171875","name":"Acetone","img":"https://i.ibb.co/Fhb8WP7/image.png"},
+            {"id":1728133660342,"lat":"106.917969","lng":"460.089844","name":"Acetone","img":"https://i.ibb.co/r23FnJH/image.png"},
+            {"id":1728134038163,"lat":"557.500000","lng":"485.343750","name":"Acetone","img":"https://i.ibb.co/ZMLS6MJ/image.png"},
+            {"id":1728134075335,"lat":"557.968750","lng":"485.187500","name":"Acetone","img":"ttps://i.ibb.co/9nc9t1B/image.png"},
+            {"id":1728134119523,"lat":"556.437500","lng":"479.750000","name":"Acetone","img":"https://i.ibb.co/zRw75CM/image.png"},
+            {"id":1728154331986,"lat":"131.476563","lng":"869.593750","name":"Acetone","img":"https://i.ibb.co/WGbJNWF/image.png"},
+            {"id":1728154375624,"lat":"132.078125","lng":"869.156250","name":"Acetone","img":"https://i.ibb.co/VHmb9vL/image.png"},
+            {"id":1728154411524,"lat":"136.906250","lng":"866.843750","name":"Acetone","img":"https://i.ibb.co/Z87m2N0/image.png"},
+            {"id":1728154824353,"lat":"218.359375","lng":"896.265625","name":"Acetone","img":"https://i.ibb.co/zHk6HLy/image.png"},
+            {"id":1728154854878,"lat":"218.875000","lng":"895.890625","name":"Acetone","img":"https://i.ibb.co/HNJfJHx/image.png"}
         ]
     },
     "Coke Stuff": {
