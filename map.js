@@ -64,6 +64,28 @@ var categories = {
             {"id":1728134075335,"lat":"557.968750","lng":"485.187500","name":"Acetone","img":"ttps://i.ibb.co/9nc9t1B/image.png"},
             {"id":1728134119523,"lat":"556.437500","lng":"479.750000","name":"Acetone","img":"https://i.ibb.co/zRw75CM/image.png"}
         ]
+    },
+    "Digital Den": {
+        color: "Purple",
+        locations: [
+            {"id":1728136841502,"lat":"350.281250","lng":"417.906250","name":"Digital Den","img":"https://i.ibb.co/N78SgHH/image.png"},
+            {"id":1728140150922,"lat":"287.843750","lng":"548.968750","name":"Digital Den","img":"https://i.ibb.co/M5MJTLv/image.png"},
+            {"id":1728140212133,"lat":"299.765625","lng":"548.203125","name":"Digital Den","img":"https://i.ibb.co/09rwtK9/image.png"},
+            {"id":1728140358599,"lat":"299.843750","lng":"348.093750","name":"Digital Den","img":"https://i.ibb.co/R7GQDfL/image.png"}
+        ]
+    },
+    "Trap Houses": {
+        color: "Black",
+        locations: [
+            {"id":1728139682314,"lat":"164.656250","lng":"475.187500","name":"Trap House","img":"https://i.ibb.co/PMw9JFd/image.png"},
+            {"id":1728139825785,"lat":"182.906250","lng":"559.687500","name":"Trap house","img":"https://i.ibb.co/svG67x3/image.png"}
+        ]
+    },
+    "Misc": {
+        color: "pink",
+        locations: [
+            {"id":1728139997572,"lat":"324.812500","lng":"592.375000","name":"Grandmas","img":"https://i.ibb.co/rQ0TWyC/image.png"}
+        ]
     }
 };
 
@@ -114,7 +136,7 @@ function loadCategories() {
             var icon = L.divIcon({
                 className: 'custom-div-icon',
                 html: getPinSVG(categoryColor), // Use the SVG function to inject the correct color
-                iconSize: [24, 24],
+                iconSize: [32, 32],
                 popupAnchor: [0, -10]
             });
 
@@ -138,6 +160,17 @@ function loadCategories() {
                 marker.openPopup();
             };
             panel.appendChild(listItem);
+
+            // Add the event listener for opening the modal when popup opens
+            marker.on('popupopen', function(e) {
+                // Get the popup image inside the currently opened popup
+                var popupImage = document.querySelector('.popup-image');
+                if (popupImage) {
+                    popupImage.addEventListener('click', function() {
+                        openModal(this.src); // Open the modal with the image src
+                    });
+                }
+            });
         });
 
         locationsListContainer.appendChild(panel);
@@ -161,7 +194,7 @@ function loadCategories() {
 function openModal(imageSrc) {
     var modal = document.getElementById("image-modal");
     var modalImg = document.getElementById("modal-image");
-    
+
     modal.style.display = "block";
     modalImg.src = imageSrc;
 

@@ -23,17 +23,21 @@ body, html {
 
 #locations-list {
     position: absolute;
-    top: 170px; /* Updated position to better accommodate the title */
+    top: 100px;
     left: 10px;
-    width: 250px; /* Wider for better appearance */
+    width: 220px;
     overflow-y: auto;
-    background-color: #565656; /* Slightly more opaque background */
+    max-height: 720px;
+    background-color: #565656;
     padding: 10px;
-    border-radius: 4px; /* Softer border */
+    border-radius: 4px;
     z-index: 1000;
-    text-align: center; /* Center the text */
-    border:solid black 2px;
-    color:white;
+    text-align: center;
+    border: solid black 2px;
+    color: white;
+    overflow-y: scroll; /* Enable scrolling */
+    scrollbar-width: none; /* Firefox: hide scrollbar */
+    -ms-overflow-style: none; /* IE and Edge: hide scrollbar */
 }
 
 .locations-title {
@@ -122,7 +126,7 @@ textarea.popup-input {
     color: red;
 }
 
-.leaflet-popup-content-wrapper {
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
     background-color: #565656;
     color:white;
 }
