@@ -79,15 +79,32 @@ var categories = {
         color: "Black",
         locations: [
             {"id":1728139682314,"lat":"164.656250","lng":"475.187500","name":"Trap House","img":"https://i.ibb.co/PMw9JFd/image.png"},
-            {"id":1728139825785,"lat":"182.906250","lng":"559.687500","name":"Trap house","img":"https://i.ibb.co/svG67x3/image.png"}
+            {"id":1728139825785,"lat":"182.906250","lng":"559.687500","name":"Trap house","img":"https://i.ibb.co/svG67x3/image.png"},
+            {"id":1728144794117,"lat":"823.812500","lng":"434.562500","name":"Trap House","img":""},
+            {"id":1728147837777,"lat":"639.281250","lng":"611.093750","name":"Sandy Traphouse","img":"https://i.ibb.co/vzjywMZ/image.png"},
+        ]
+    },
+    "Meth Labs": {
+        color: "Cyan",
+        locations: [
+            {"id":1728147262215,"lat":"593.250000","lng":"648.750000","name":"Meth Lab","img":"https://i.ibb.co/JQt4Fj2/image.png"},
+            {"id":1728147375815,"lat":"574.375000","lng":"501.281250","name":"Meth Lab","img":"https://i.ibb.co/tP65zqJ/image.png"},
+            {"id":1728147460567,"lat":"580.843750","lng":"477.843750","name":"Meth Lab","img":"https://i.ibb.co/Z1Lf3GP/image.png"},
+            {"id":1728147589485,"lat":"597.718750","lng":"483.281250","name":"Meth Lab","img":" https://i.ibb.co/JBp9JH1/image.png"},
+            {"id":1728147693872,"lat":"629.671875","lng":"588.671875","name":"Meth Lab","img":"https://i.ibb.co/cQTqhgF/image.png"},
+            {"id":1728147938869,"lat":"651.718750","lng":"655.562500","name":"Meth Lab","img":"https://i.ibb.co/tL30X9T/image.png"},
+            {"id":1728148050556,"lat":"725.656250","lng":"660.468750","name":"Meth Lab","img":"https://i.ibb.co/fNVtbyj/image.png"},
+            {"id":1728148124344,"lat":"719.343750","lng":"646.390625","name":"Meth Lab","img":"https://i.ibb.co/866YmVn/image.png"}
         ]
     },
     "Misc": {
         color: "pink",
         locations: [
-            {"id":1728139997572,"lat":"324.812500","lng":"592.375000","name":"Grandmas","img":"https://i.ibb.co/rQ0TWyC/image.png"}
+            {"id":1728139997572,"lat":"324.812500","lng":"592.375000","name":"Grandmas","img":"https://i.ibb.co/rQ0TWyC/image.png"},
+            {"id":1728142671618,"lat":"79.281250","lng":"507.062500","name":"House Sell Guy","img":"https://i.ibb.co/Pxt596z/image.png"}
         ]
-    }
+    },
+    
 };
 
 
