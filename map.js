@@ -51,6 +51,7 @@ var categories = {
             {"id":1728139825785,"lat":"182.906250","lng":"559.687500","name":"Trap house","img":"https://i.ibb.co/svG67x3/image.png"},
             {"id":1728144794117,"lat":"823.812500","lng":"434.562500","name":"Trap House","img":"https://i.ibb.co/vVrxVR8/image.png"},
             {"id":1728147837777,"lat":"639.281250","lng":"611.093750","name":"Sandy Traphouse","img":"https://i.ibb.co/vzjywMZ/image.png"},
+            {"id":1730374264181,"lat":"192.250000","lng":"469.968750","name":"Traphouse","img":"https://i.ibb.co/px7Js9W/image.png"}
         ]
     },
     "Misc": {
