@@ -23,7 +23,7 @@ var categories = {
     "Money Cleaning": {
         color: "Green",
         locations: [
-            {"id":1728132927577,"lat":"265.937500","lng":"516.000000","name":"Cargo","img":"https://i.ibb.co/f4qZjkn/image.png"},
+            {"id":1735002891185,"lat":"188.750000","lng":"532.687500","name":"CARGO","img":"https://i.ibb.co/stKp09q/image.png"},
             {"id":1728149655732,"lat":"682.687500","lng":"765.562500","name":"Stripper Run","img":"https://i.ibb.co/h21Wcrh/image.png"},
         ]
     },
