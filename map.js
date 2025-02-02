@@ -173,9 +173,15 @@ function loadCategories(categoryIcons) {
             listItem.className = 'locations-item';
             listItem.textContent = location.name;
             listItem.onclick = function () {
-                map.setView([location.lat, location.lng]);
-                marker.openPopup();
+                // First, center the map on the marker.
+                map.setView([location.lat, location.lng], map.getZoom(), { animate: true });
+                // Then, pan the map by an offset (e.g., 0 horizontally, 100 pixels vertically) to bring the popup to the center.
+                setTimeout(function() {
+                    map.panBy([0, -100], { animate: true });
+                    marker.openPopup();
+                }, 300);
             };
+            
             panel.appendChild(listItem);
             
             // Attach event to open the modal when the popup image is clicked
