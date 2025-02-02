@@ -1,18 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
 body, html {
-    height: 100%;
-    margin: 0;
-    font-family: 'Oswald', sans-serif;
+  height: 100%;
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  background-color: #121212;
+  color: #f5f5f5;
 }
 
+/* Use a single font-family rule for consistency */
 * {
-    font-family: 'Oswald', sans-serif;
-    font-weight: bold;
+  font-family: 'Oswald', sans-serif;
 }
 
+/* Map container */
 #map-container {
-    position: relative;
+  position: relative;
 }
 
 #map {
@@ -20,300 +23,326 @@ body, html {
   width: 100%;
 }
 
-
+/* -------------------------------------------------
+   Sidebar for Locations List – Dark Mode & Organized
+--------------------------------------------------- */
 #locations-list {
-    position: absolute;
-    top: 20px;
-    left: 10px;
-    width: 220px;
-    overflow-y: auto;
-    max-height: 720px;
-    background-color: #565656;
-    padding: 10px;
-    border-radius: 4px;
-    z-index: 1000;
-    text-align: center;
-    border: solid black 2px;
-    color: white;
-    overflow-y: scroll; /* Enable scrolling */
-    scrollbar-width: none; /* Firefox: hide scrollbar */
-    -ms-overflow-style: none; /* IE and Edge: hide scrollbar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #1e1e1e;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  z-index: 1000;
 }
 
+/* Hide scrollbar for WebKit browsers */
+#locations-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Sidebar Title */
 .locations-title {
-    font-size: 24px;
-    margin: 10px 0; /* More margin to separate from the list */
-    padding: 5px;
-    border-radius: 10px; /* Softer border to match the container */
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #333;
+  color: #f5f5f5;
+  text-align: center;
 }
 
-.location-item {
-    cursor: pointer;
-    font-size: 18px;
-    padding: 10px; /* More padding for better appearance */
-    margin: 5px; /* Some margin to separate items */
-    border-radius: 5px; /* Soft border */
-    text-align: center; /* Center the text */
-    border:solid black 2px;
+/* -------------------------------------------------
+   Accordion & Category Header Styles – Dark Mode
+--------------------------------------------------- */
+.accordion {
+  background-color: #2a2a2a;
+  color: #f5f5f5;
+  cursor: pointer;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border: none;
+  text-align: left;
+  font-size: 18px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.location-item:hover {
-    background-color: #f0f0f0;
+.accordion:hover {
+  background-color: #333;
 }
 
+.accordion.active {
+  background-color: #444;
+}
+
+/* Container inside accordion header */
+.category-container {
+  display: flex;
+  align-items: center;
+}
+
+.color-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* -------------------------------------------------
+   Panel (Dropdown) for Locations Under Each Category
+--------------------------------------------------- */
+.panel {
+  padding: 0 20px;
+  display: none;
+  margin-bottom: 20px;
+}
+
+/* -------------------------------------------------
+   Location Items – Modern Card Style (Dark Mode)
+--------------------------------------------------- */
+.locations-item {
+  cursor: pointer;
+  padding: 10px 15px;
+  background-color: #292929;
+  border: 1px solid #333;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  color: #f5f5f5;
+  text-align: left;
+}
+
+.locations-item:hover {
+  background-color: #333;
+  transform: translateX(5px);
+}
+
+/* -------------------------------------------------
+   Popup Container and Form Elements – Dark Mode
+--------------------------------------------------- */
 .popup-container {
-    width: 200px;
-    background-color: #333;
-    max-width: 1500px;
+  width: 200px;
+  background-color: #2a2a2a;
+  max-width: 1500px;
 }
 
 .popup-input,
 .popup-input[type="textarea"] {
-    width: 100%; /* Set the width to 100% */
-    padding: 10px;
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-    font-size: 14px;
-    transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 5px 0;
+  border: 1px solid #444;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #333;
+  color: #f5f5f5;
 }
 
 .popup-input:focus {
-    border-color: #007bff;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 123, 255, 0.5);
-    outline: none;
+  border-color: #007bff;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.3), 0 0 5px rgba(0,123,255,0.5);
+  outline: none;
 }
 
-/* Additional styles for textarea */
 textarea.popup-input {
-    resize: vertical; /* Allow vertical resizing of the textarea */
+  resize: vertical;
 }
-
 
 .popup-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.2s; /* Add a transition effect */
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s;
 }
 
 .popup-button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .popup-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    display: block;
-    margin: 5px auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin: 5px auto;
 }
 
 .preview-container img {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
-.fa-map-pin.active {
-    color: red;
-}
-
-.leaflet-popup-content-wrapper, .leaflet-popup-tip {
-    background-color: #565656;
-    color:white;
+/* -------------------------------------------------
+   Leaflet Popup and Icon Overrides – Dark Mode
+--------------------------------------------------- */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background-color: #2a2a2a;
+  color: #f5f5f5;
 }
 
 .leaflet-div-icon {
-    background: transparent;
-    border: none;
-    text-align: center;
-    font-size: 24px;
+  background: transparent;
+  border: none;
+  text-align: center;
+  font-size: 24px;
 }
 
 .popup-button-container {
-    display: flex;
-    padding: 5px;
-    justify-content: space-between;
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
 }
 
 .popup-button.red {
-    background-color: red;
-    color: white;
-    margin:5px;
+  background-color: red;
+  color: white;
+  margin: 5px;
 }
 
 .popup-button.green {
-    background-color: green;
-    color: white;
+  background-color: green;
+  color: white;
 }
 
+/* -------------------------------------------------
+   Options Container & Utility Classes – Dark Mode
+--------------------------------------------------- */
 .hidden {
-    display: none;
+  display: none;
 }
 
 #options-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    z-index: 1001;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(20, 20, 20, 0.95);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 1001;
+  color: #f5f5f5;
 }
 
 #close-options-button {
-    display: block;
-    margin: 10px auto 0;
-    padding: 10px 20px;
-    background-color: #ff0000;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  display: block;
+  margin: 10px auto 0;
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 #close-options-button:hover {
-    background-color: #dc5959;
+  background-color: #dc5959;
 }
 
-
-.accordion {
-    cursor: pointer;
-    padding: 10px;
-    text-align: left;
-    background-color: #333;
-    color: white;
-    border: none;
-    outline: none;
-    width: 100%;
-    font-size: 16px;
-    transition: 0.3s;
-    border:solid black 2px;
-}
-
-.accordion:hover {
-    background-color: #444;
-}
-
-.panel {
-    padding: 0 18px;
-    display: none;
-    background-color: #333;
-    overflow: hidden;
-    color:white;
-}
-
-.panel.show {
-    display: block;
-}
-
-.locations-item {
-    cursor: pointer;
-    padding: 8px;
-    background-color: #333;
-    margin: 4px 0;
-}
-
-.locations-item:hover {
-    background-color: #3c3c3c;
-}
-
-
-/* The Modal (background) */
+/* -------------------------------------------------
+   Modal Styles for Enlarged Images – Dark Mode
+--------------------------------------------------- */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 9999; /* Sit on top */
-    padding-top: 60px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black with opacity */
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
 }
 
-/* Modal Content (Image) */
 .modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-height: 90%;
-
-}
-
-/* Caption of Modal Image */
-#modal-caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-}
-
-/* Add Animation */
-.modal-content {
-    -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.6s;
-    animation-name: zoom;
-    animation-duration: 0.6s;
-}
-
-@-webkit-keyframes zoom {
-    from {-webkit-transform: scale(0)} 
-    to {-webkit-transform: scale(1)}
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-height: 90%;
+  animation-name: zoom;
+  animation-duration: 0.6s;
 }
 
 @keyframes zoom {
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
+  from { transform: scale(0); }
+  to { transform: scale(1); }
 }
 
-/* The Close Button */
 .modal-close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .modal-close:hover,
 .modal-close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-
+/* -------------------------------------------------
+   Additional Utility Classes
+--------------------------------------------------- */
 .category-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .color-indicator {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%; /* Makes the div a circle */
-    margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
-.leaflet-control-container{
-    display:none;
+.leaflet-control-container {
+  display: none;
 }
+
+/* -------------------------------------------------
+   Layout Options for Category List
+--------------------------------------------------- */
+
+/* Option 1: Always one column (each category occupies full width) */
+#locations-list .accordion {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 
+// Option 2: Always two columns (uncomment to use)
+// Wrap the accordions in a grid layout:
+// #locations-list {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-gap: 10px;
+// }
+// #locations-list .accordion {
+//   width: auto;
+//   box-sizing: border-box;
+// }
+*/
