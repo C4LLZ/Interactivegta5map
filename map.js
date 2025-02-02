@@ -63,7 +63,8 @@ var categories = {
             {"id":1728151081924,"lat":"249.031250","lng":"515.375000","name":"Big Pawn","img":"https://i.ibb.co/hmH4r5J/image.png"},
             {"id":1728151149593,"lat":"248.015625","lng":"515.375000","name":"Crypto Heist HDD","img":"https://i.ibb.co/c67Chkq/image.png"},
             {"id":1728151300347,"lat":"192.593750","lng":"419.898438","name":"Small Pawn (RAIDED)","img":"https://i.ibb.co/McG2wgw/image.png"},
-            {"id":1738446600777,"lat":"210.312500","lng":"489.250000","name":"GRAVE ROBBING","img":"https://i.ibb.co/yvGKYvL/image.png"}
+            {"id":1738446600777,"lat":"210.312500","lng":"489.250000","name":"GRAVE ROBBING","img":"https://i.ibb.co/yvGKYvL/image.png"},
+            {"id":1738516946876,"lat":"430.875000","lng":"519.937500","name":"Bone Meal","img":"https://i.ibb.co/WWSy4Pj7/image.png"}
         ]
     },
     "Tradeables": {
