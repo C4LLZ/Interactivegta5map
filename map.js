@@ -39,6 +39,11 @@ fetch('categories.json')
         
         // Show the loading indicator while prefetching images
         var loadingIndicator = document.getElementById('loading-indicator');
+        if (!loadingIndicator) {
+            console.error("No loading indicator element found. Please add an element with id 'loading-indicator' in your HTML.");
+            return;
+        }
+        // Force a reflow to ensure the indicator is rendered before prefetch starts.
         loadingIndicator.style.display = 'block';
         updateLoadingIndicator(0, getTotalImageCount(categories));
         
@@ -70,12 +75,16 @@ function getTotalImageCount(categoriesData) {
 function updateLoadingIndicator(loaded, total) {
     const loadingIndicator = document.getElementById("loading-indicator");
     loadingIndicator.innerHTML = `
-        <div style="margin-top:40vh;">
+        <div style="margin-top:20vh; text-align: center; color: #fff;">
             <i class="fas fa-spinner fa-spin"></i>
-            Loading images: ${loaded} of ${total}
+            <p style="margin-top:10px; font-size: 20px;">
+                ${loaded} out of ${total} images loaded
+            </p>
         </div>
     `;
 }
+
+
 
 /**
  * Prefetches all images from the categories data.
@@ -94,7 +103,7 @@ function prefetchImages(categoriesData) {
         for (let category in categoriesData) {
             categoriesData[category].locations.forEach(function(location) {
                 var img = new Image();
-                // Whether loaded successfully or not, count the image as "done"
+                // Count image as "done" whether it loads successfully or errors out
                 img.onload = img.onerror = function() {
                     loadedCount++;
                     updateLoadingIndicator(loadedCount, totalImages);
@@ -102,7 +111,7 @@ function prefetchImages(categoriesData) {
                         resolve();
                     }
                 };
-                // Setting src initiates the request (the browser will cache it)
+                // Initiate the image load (this also caches the image)
                 img.src = location.img;
             });
         }
@@ -169,7 +178,7 @@ function loadCategories(categoryIcons) {
             };
             panel.appendChild(listItem);
             
-            // When the marker’s popup opens, attach the modal image click event
+            // Attach event to open the modal when the popup image is clicked
             marker.on('popupopen', function(e) {
                 var popupImage = document.querySelector('.popup-image');
                 if (popupImage) {
