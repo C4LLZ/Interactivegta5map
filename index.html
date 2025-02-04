@@ -1,48 +1,124 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>EchoRP Locations Map</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
-    <!-- Link to your updated style.css that includes the modern UI styles below -->
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <!-- Link to your custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <link rel="icon" type="image/x-icon" href="EchoThingy.ico">
-</head>
-<body>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="EchoThingy.ico" />
+  </head>
+  <body>
     <!-- Sidebar for the locations list -->
     <div id="locations-list" class="locations-list">
-        <h1 class="locations-title">Crime Categories</h1>
+      <h1 class="locations-title">Crime Categories</h1>
     </div>
-    
+
     <!-- Map container -->
     <div id="map"></div>
-    
-    <!-- Options container -->
+
+    <!-- Options container (if needed) -->
     <div id="options-container" class="hidden">
-        <button id="export-button" class="popup-button">Export</button>
-        <button id="import-button" class="popup-button">Import</button>
-        <input id="import-file" class="popup-input" type="file" accept="application/json">
-        <button id="toggle-set-locations-button" class="popup-button">Crime Locations</button>
-        <button id="create-marker-button" class="popup-button">Create Marker</button>
-        <button id="close-options-button">Close</button>
+      <button id="export-button" class="popup-button">Export</button>
+      <button id="import-button" class="popup-button">Import</button>
+      <input
+        id="import-file"
+        class="popup-input"
+        type="file"
+        accept="application/json"
+      />
+      <button id="toggle-set-locations-button" class="popup-button">
+        Crime Locations
+      </button>
+      <button id="create-marker-button" class="popup-button">
+        Create Marker
+      </button>
+      <button id="close-options-button" class="popup-button">Close</button>
     </div>
-    
+
     <!-- Modal container for enlarged images -->
     <div id="image-modal" class="modal">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modal-image" alt="Enlarged image">
+      <span class="modal-close">&times;</span>
+      <img class="modal-content" id="modal-image" alt="Enlarged image" />
     </div>
-    
-    <!-- Loading indicator for prefetching images -->
-    <div id="loading-indicator" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); font-size:24px; z-index:9999;"></div>
 
-        <!-- The JS will update this element with a spinner and progress info -->
+    <!-- Bench Recipes Modal (if needed) -->
+    <div id="benchModal" class="modal">
+      <div
+        class="modal-content bench-modal-content"
+        style="max-width: 400px; margin: 100px auto; position: relative; padding: 20px; background: #2a2a2a; border-radius: 8px; color: #f5f5f5;"
+      >
+        <span
+          id="benchModalClose"
+          class="modal-close"
+          style="position: absolute; top: 10px; right: 15px; font-size: 30px; cursor: pointer;"
+          >&times;</span
+        >
+        <div id="benchModalContent"></div>
+      </div>
     </div>
-    
+
+    <!-- Side Popup for location details -->
+    <div
+      id="side-popup"
+      style="display:none; position:fixed; right:0; top:20%; width:300px; background:#1e1e1e; padding:20px; z-index:1200; box-shadow:-2px 0 8px rgba(0,0,0,0.7);"
+    >
+      <span
+        id="side-popup-close"
+        style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:24px;"
+        >&times;</span>
+      <div id="side-popup-content"></div>
+    </div>
+
+    <!-- Loading indicator for prefetching images -->
+    <div
+      id="loading-indicator"
+      style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); font-size:24px; z-index:9999;"
+    ></div>
+
+    <!-- PRODIGY Switch Button (kept as an extra option) -->
+    <button
+      id="prodigyButton"
+      style="position: absolute; top: 10px; right: 10px; z-index: 1100; padding: 10px 20px; background:#007bff; color:#fff; border:none; border-radius:4px; cursor:pointer;"
+    >
+      SERVER SWITCH
+    </button>
+
+    <!-- Data Source Selection Modal (shown on load) -->
+    <div
+      id="dataSourceModal"
+      class="modal"
+      style="display:block;"
+    >
+      <div
+        class="modal-content"
+        style="max-width:300px; margin:100px auto; padding:20px; background:#1e1e1e; border-radius:8px; text-align:center;"
+      >
+        <h2>Select Server</h2>
+        <button id="echoRPButton" class="popup-button">EchoRP</button>
+        <button id="prodigySelectButton" class="popup-button">Prodigy</button>
+      </div>
+    </div>
+
+    <!-- Include the main JS file -->
     <script src="map.js"></script>
-</body>
+  </body>
 </html>

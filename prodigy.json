@@ -1,0 +1,55 @@
+{
+  "Benches": {
+    "color": "#574b27",
+    "locations": [
+      {
+        "id": 1728154472558,
+        "lat": "344.000000",
+        "lng": "520.750000",
+        "name": "Crafting Bench",
+        "img": "https://i.ibb.co/7J7MCT7W/d21e421cc515a5527636676ed8945a74.png",
+        "bench": true,
+        "recipes": {
+          "P6900 Radio": {
+            "Electronic Parts": "5",
+            "plastic": "5",
+            "battery": "1"
+          },
+          "Electronic Parts": {
+            "Scrap Electronics": "1",
+            "Coppar Bar": "1"
+          },
+          "Body Armor": {
+            "Hammer": "1",
+            "Dirty Clothes": "5",
+            "Kevlar" : "1"
+          }
+        }
+      },
+      {
+        "id": 1738698011169,
+        "lat": "291.875000",
+        "lng": "507.125000",
+        "name": "Crafting Bench",
+        "img": "https://i.ibb.co/LjjBbCG/image.png",
+        "bench": true,
+        "recipes": {
+          "P6900 Radio": {
+            "Electronic Parts": "5",
+            "plastic": "5",
+            "battery": "1"
+          },
+          "Electronic Parts": {
+            "Scrap Electronics": "1",
+            "Coppar Bar": "1"
+          },
+          "Body Armor": {
+            "Hammer": "1",
+            "Dirty Clothes": "5",
+            "Kevlar" : "1"
+          }
+        }
+      }
+    ]
+  }
+}
