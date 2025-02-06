@@ -292,23 +292,6 @@ textarea.popup-input {
   cursor: pointer;
 }
 
-/* Additional Utility Classes */
-.category-container {
-  display: flex;
-  align-items: center;
-}
-
-.color-indicator {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.leaflet-control-container {
-  display: none;
-}
-
 /* Layout Options for Category List */
 #locations-list .accordion {
   display: block;
@@ -318,9 +301,8 @@ textarea.popup-input {
 
 /* Highlighted marker style */
 .leaflet-marker-icon.highlighted {
-  transform: scale(1.2);
-  border: 2px solid #FFD700;
-  z-index: 2000;
+  animation: bounce 0.6s ease;
+  z-index: 999999;
 }
 
 /* Ensure side popup is scrollable if its content exceeds 300px */
@@ -328,8 +310,8 @@ textarea.popup-input {
   max-height: 600px;
   margin-right: 20px;
   overflow-y: auto;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
   
 }
 
@@ -359,3 +341,122 @@ textarea.popup-input {
   padding: 5px 15px;
   margin-bottom: 5px;
 }
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-15px) scale(1.1);
+  }
+  50% {
+    transform: translateY(0) scale(1);
+  }
+  70% {
+    transform: translateY(-7px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.recipe-image {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  margin: 5px;
+  border: 1px solid #444;
+  border-radius: 4px;
+}
+
+/* ---------------------------------------
+   NEW Crafting UI Styles
+   ---------------------------------------
+   These classes style the "one-recipe-at-a-time"
+   display for your bench items.
+*/
+.crafting-ui {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.crafting-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.crafting-item-name {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.crafting-time {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.time-label {
+  margin-right: 5px;
+}
+
+.time-value {
+  background-color: #008000; /* Green accent */
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.crafting-quantity {
+  text-align: right;
+}
+
+.crafting-quantity-title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.items-required-container {
+  margin-top: 10px;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+}
+
+.items-required-title {
+  margin-bottom: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.items-required {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-required {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+.item-required img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  border: 1px solid #444;
+  border-radius: 4px;
+}
+
+.item-required .quantity-text {
+  font-size: 14px;
+}
+

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EchoRP Locations Map</title>
+    <title>Locations Map</title>
     <!-- Font Awesome for icons -->
     <link
       rel="stylesheet"
@@ -24,7 +24,6 @@
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="EchoThingy.ico" />
   </head>
   <body>
     <!-- Sidebar for the locations list -->
@@ -64,12 +63,26 @@
     <div id="benchModal" class="modal">
       <div
         class="modal-content bench-modal-content"
-        style="max-width: 400px; margin: 100px auto; position: relative; padding: 20px; background: #2a2a2a; border-radius: 8px; color: #f5f5f5;"
+        style="
+          max-width: 400px;
+          margin: 100px auto;
+          position: relative;
+          padding: 20px;
+          background: #2a2a2a;
+          border-radius: 8px;
+          color: #f5f5f5;
+        "
       >
         <span
           id="benchModalClose"
           class="modal-close"
-          style="position: absolute; top: 10px; right: 15px; font-size: 30px; cursor: pointer;"
+          style="
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+            cursor: pointer;
+          "
           >&times;</span
         >
         <div id="benchModalContent"></div>
@@ -79,38 +92,79 @@
     <!-- Side Popup for location details -->
     <div
       id="side-popup"
-      style="display:none; position:fixed; right:0; top:20%; width:300px; background:#1e1e1e; padding:20px; z-index:1200; box-shadow:-2px 0 8px rgba(0,0,0,0.7);"
+      style="
+        display: none;
+        position: fixed;
+        right: 0;
+        top: 20%;
+        width: 300px;
+        background: #1e1e1e;
+        padding: 20px;
+        z-index: 1200;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.7);
+      "
     >
       <span
         id="side-popup-close"
-        style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:24px;"
-        >&times;</span>
+        style="
+          position: absolute;
+          top: 10px;
+          right: 15px;
+          cursor: pointer;
+          font-size: 24px;
+        "
+        >&times;</span
+      >
       <div id="side-popup-content"></div>
     </div>
 
     <!-- Loading indicator for prefetching images -->
     <div
       id="loading-indicator"
-      style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); font-size:24px; z-index:9999;"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        font-size: 24px;
+        z-index: 9999;
+      "
     ></div>
 
     <!-- PRODIGY Switch Button (kept as an extra option) -->
     <button
       id="prodigyButton"
-      style="position: absolute; top: 10px; right: 10px; z-index: 1100; padding: 10px 20px; background:#007bff; color:#fff; border:none; border-radius:4px; cursor:pointer;"
+      style="
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1100;
+        padding: 10px 20px;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      "
     >
       SERVER SWITCH
     </button>
 
     <!-- Data Source Selection Modal (shown on load) -->
-    <div
-      id="dataSourceModal"
-      class="modal"
-      style="display:block;"
-    >
+    <div id="dataSourceModal" class="modal" style="display: block">
       <div
         class="modal-content"
-        style="max-width:300px; margin:100px auto; padding:20px; background:#1e1e1e; border-radius:8px; text-align:center;"
+        style="
+          max-width: 300px;
+          margin: 100px auto;
+          padding: 20px;
+          background: #1e1e1e;
+          border-radius: 8px;
+          text-align: center;
+        "
       >
         <h2>Select Server</h2>
         <button id="echoRPButton" class="popup-button">EchoRP</button>

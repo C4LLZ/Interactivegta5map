@@ -7,24 +7,19 @@
         "lat": "348.250000",
         "lng": "513.625000",
         "name": "Crafting Bench",
-        "img": "https://i.ibb.co/7J7MCT7W/d21e421cc515a5527636676ed8945a74.png",
+        "img": "https://i.ibb.co/bMgWqYfd/image.png",
         "bench": true,
-        "recipes": {
-          "P6900 Radio": {
-            "Electronic Parts": "5",
-            "plastic": "5",
-            "battery": "1"
-          },
-          "Electronic Parts": {
-            "Scrap Electronics": "1",
-            "Coppar Bar": "1"
-          },
-          "Body Armor": {
-            "Hammer": "1",
-            "Dirty Clothes": "5",
-            "Kevlar" : "1"
+        "recipes": [
+          {
+            "id": "pistol_grip",
+            "display": "Pistol Grip",
+            "ingredients": [
+              { "id": "iron_bar", "display": "Iron Bar", "amount": "5" },
+              { "id": "salvagedparts", "display": "Salvaged Parts", "amount": "5" },
+              { "id": "copper_bar", "display": "Copper Bar", "amount": "2" }
+            ]
           }
-        }
+        ]
       },
       {
         "id": 1738698011169,
@@ -33,22 +28,144 @@
         "name": "Crafting Bench",
         "img": "https://i.ibb.co/LjjBbCG/image.png",
         "bench": true,
-        "recipes": {
-          "P6900 Radio": {
-            "Electronic Parts": "5",
-            "plastic": "5",
-            "battery": "1"
+        "recipes": [
+          {
+            "id": "radio_shitty",
+            "display": "P6900 Radio",
+            "ingredients": [
+              { "id": "electronic_parts", "display": "Electronic Parts", "amount": "5" },
+              { "id": "plastic", "display": "Plastic", "amount": "5" },
+              { "id": "battery", "display": "Battery", "amount": "1" }
+            ]
           },
-          "Electronic Parts": {
-            "Scrap Electronics": "1",
-            "Coppar Bar": "1"
+          {
+            "id": "electronic_parts",
+            "display": "Electronic Parts",
+            "ingredients": [
+              { "id": "broken_electronics", "display": "Broken Electronics", "amount": "1" },
+              { "id": "copper_bar", "display": "Copper Bar", "amount": "1" }
+            ]
           },
-          "Body Armor": {
-            "Hammer": "1",
-            "Dirty Clothes": "5",
-            "Kevlar" : "1"
+          {
+            "id": "armor",
+            "display": "Body Armor",
+            "ingredients": [
+              { "id": "weapon_hammer", "display": "Hammer", "amount": "1" },
+              { "id": "dirty_clothes", "display": "Dirty Clothes", "amount": "5" },
+              { "id": "noitem", "display": "Kevlar", "amount": "1" }
+            ]
+          },
+          {
+            "id": "glass",
+            "display": "Glass",
+            "ingredients": [
+              { "id": "empty_bottles", "display": "Empty Bottle", "amount": "2" }
+            ]
+          },
+          {
+            "id": "gauze",
+            "display": "Gauze",
+            "ingredients": [
+              { "id": "dirty_clothes", "display": "Dirty Clothes", "amount": "2" }
+            ]
+          },
+          {
+            "id": "scrapmetal",
+            "display": "Scrap Metal",
+            "ingredients": [
+              { "id": "rusty_screws", "display": "Rusty Screws", "amount": "1" },
+              { "id": "springs", "display": "Springs", "amount": "1" }
+            ]
+          },
+          {
+            "id": "leather",
+            "display": "Leather",
+            "ingredients": [
+              { "id": "hide_tier1", "display": "Dirty Animal Hide", "amount": "1" }
+            ]
+          },
+          {
+            "id": "leather",
+            "display": "Leather",
+            "ingredients": [
+              { "id": "hide_tier3", "display": "Clean Animal Hide", "amount": "1" }
+            ]
+          },
+          {
+            "id": "vehicle_radio",
+            "display": "Vehicle Radio",
+            "ingredients": [
+              { "id": "broken_electronics", "display": "Broken Electronics", "amount": "5" }
+            ]
+          },
+          {
+            "id": "weed_grinder",
+            "display": "Grinder",
+            "ingredients": [
+              { "id": "iron_bar", "display": "Iron Bar", "amount": "2" },
+              { "id": "scrap_metal", "display": "Scrap Metal", "amount": "2" }
+            ]
+          },
+          {
+            "id": "handcuffs",
+            "display": "Zipties",
+            "ingredients": [
+              { "id": "rubber", "display": "Rubber", "amount": "1" },
+              { "id": "plastic", "display": "Plastic", "amount": "1" }
+            ]
+          },
+          {
+            "id": "advanced_electric_parts",
+            "display": "Advanced Electronic Parts",
+            "ingredients": [
+              { "id": "zinc_bar", "display": "Zinc Bar", "amount": "3" },
+              { "id": "lithium_bar", "display": "Lithium Bar", "amount": "1" }
+            ]
+          },
+          {
+            "id": "armor_plate",
+            "display": "Armor Plate",
+            "ingredients": [
+              { "id": "steel_bar", "display": "Steel Bar", "amount": "2" },
+              { "id": "noitem", "display": "Kevlar", "amount": "2" },
+              { "id": "glue", "display": "Glue", "amount": "1" }
+            ]
+          },
+          {
+            "id": "chromium_bar",
+            "display": "Chromium Bar",
+            "ingredients": [
+              { "id": "aluminium_bar", "display": "Aluminium Bar", "amount": "2" },
+              { "id": "charcoal", "display": "Charcoal", "amount": "2" }
+            ]
+          },
+          {
+            "id": "aluminium_bar",
+            "display": "Aluminium Bar",
+            "ingredients": [
+              { "id": "empty_cans", "display": "Empty Can", "amount": "5" }
+            ]
           }
-        }
+        ]
+      },
+      {
+        "id": 1738845406218,
+        "lat": "852.468750",
+        "lng": "462.406250",
+        "name": "Crafting Bench",
+        "img": "https://i.ibb.co/C36zXpPt/image.png",
+        "bench": true,
+        "recipes": [
+          {
+            "id": "pistol_lower",
+            "display": "Pistol Lower",
+            "ingredients": [
+              { "id": "pistol_grip", "display": "Pistol Grip", "amount": "1" },
+              { "id": "pistol_trigger", "display": "Pistol Trigger", "amount": "1" },
+              { "id": "zinc_bar", "display": "Zinc Bar", "amount": "2" }
+            ]
+          }
+        ]
       }
     ]
   }
