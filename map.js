@@ -246,27 +246,31 @@ function showSidePopup(location) {
   // Build the basic popup content with the location title and image.
   let content = `
     <h1>${location.name}</h1>
-    <img src="${location.img}"
-         alt="${location.name}"
-         title="${location.name}"
-         style="width:100%; height:auto; margin-bottom:10px; cursor:pointer;" />
+    <img 
+      src="${location.img}"
+      alt="${location.name}"
+      title="${location.name}"
+      style="width:100%; height:auto; margin-bottom:10px; cursor:pointer;" 
+    />
   `;
 
   // If this is a bench marker with recipes, create a recipe menu.
   if (location.bench === true && Array.isArray(location.recipes)) {
     content += `<h3>Recipes:</h3>
-                <div id="recipe-menu" style="display: flex; flex-wrap: wrap;">`;
+                <div id="recipe-menu" style="display: flex; flex-wrap: wrap; margin-left:10px;">`;
 
     // For each recipe in the array, create an image button with hover tooltip.
     location.recipes.forEach(function (recipe) {
       let recipeImageUrl = `https://cdn.prodigyrp.net/inventory-images/${recipe.id}.webp`;
       content += `
-        <img class="recipe-image"
-             src="${recipeImageUrl}"
-             alt="${recipe.display}"
-             title="${recipe.display}"
-             data-recipe-id="${recipe.id}"
-             style="width:50px; height:50px; cursor:pointer; margin:2px; border: 1px solid #444; border-radius:4px;" />
+        <img 
+          class="recipe-image"
+          src="${recipeImageUrl}"
+          alt="${recipe.display}"
+          title="${recipe.display}"
+          data-recipe-id="${recipe.id}"
+          style="width:50px; height:50px; cursor:pointer; margin:2px; border: 1px solid #444; border-radius:4px;" 
+        />
       `;
     });
 
@@ -276,11 +280,12 @@ function showSidePopup(location) {
   }
 
   // Set the side popup content and display it
-  document.getElementById("side-popup-content").innerHTML = content;
+  const popupContentEl = document.getElementById("side-popup-content");
+  popupContentEl.innerHTML = content;
   document.getElementById("side-popup").style.display = "block";
 
   // Main image modal click event
-  let sideImg = document.querySelector("#side-popup-content img");
+  let sideImg = popupContentEl.querySelector("img"); // first <img> is the main location image
   if (sideImg) {
     sideImg.addEventListener("click", function () {
       openModal(this.src);
@@ -288,7 +293,7 @@ function showSidePopup(location) {
   }
 
   // Recipe image click events
-  let recipeImages = document.querySelectorAll(".recipe-image");
+  let recipeImages = popupContentEl.querySelectorAll(".recipe-image");
   recipeImages.forEach(function (img) {
     img.addEventListener("click", function () {
       let recipeId = this.getAttribute("data-recipe-id");
@@ -304,8 +309,16 @@ function showSidePopup(location) {
       detailsContainer.appendChild(craftingUI);
     });
   });
+
+  // Enable custom tooltips for **all** images in the side-popup
+  enableIngredientTooltips(popupContentEl, "img");     // <-- new!
 }
 
+
+/**
+ * Builds the dark-themed crafting UI for a selected recipe
+ * and returns it as a DOM element.
+ */
 function buildCraftingUI(recipe) {
   let container = document.createElement("div");
   container.classList.add("crafting-ui");
@@ -349,61 +362,13 @@ function buildCraftingUI(recipe) {
     itemsRequiredEl.appendChild(itemEl);
   });
 
-  return container;
-}
-
-/**
- * Builds the dark-themed crafting UI for a selected recipe
- * and returns it as a DOM element.
- */
-function buildCraftingUI(recipe) {
-  // Create a container DIV
-  let container = document.createElement("div");
-  container.classList.add("crafting-ui");
-
-  // Basic structure: header (left: name/time, right: quantity) + items required
-  container.innerHTML = `
-    <div class="crafting-header">
-      <div>
-        <div class="crafting-item-name">${recipe.display}</div>
-        <div class="crafting-time">
-          <span class="time-label">Crafting Time:</span>
-          <span class="time-value">5s</span>
-        </div>
-      </div>
-      <div class="crafting-quantity">
-        <div class="crafting-quantity-title">QUANTITY</div>
-        <div>1</div>
-      </div>
-    </div>
-
-    <div class="items-required-container">
-      <div class="items-required-title">ITEMS REQUIRED</div>
-      <div class="items-required"></div>
-    </div>
-  `;
-
-  // Get the `.items-required` container
-  let itemsRequiredEl = container.querySelector(".items-required");
-
-  // For each ingredient, display "0/X" and the image
-  recipe.ingredients.forEach((ingredient) => {
-    let itemEl = document.createElement("div");
-    itemEl.classList.add("item-required");
-
-    // Build the ingredient image URL
-    let ingredientImageUrl = `https://cdn.prodigyrp.net/inventory-images/${ingredient.id}.webp`;
-
-    itemEl.innerHTML = `
-      <img src="${ingredientImageUrl}" alt="${ingredient.display}" />
-      <span class="quantity-text">0/${ingredient.amount}</span>
-    `;
-
-    itemsRequiredEl.appendChild(itemEl);
-  });
+  // Enable custom tooltips for these images
+  // (Selector: the <img> inside .items-required)
+  enableIngredientTooltips(container, ".items-required img");
 
   return container;
 }
+
 
 function getCDNImageUrl(name) {
   // Convert to lowercase and replace spaces with underscores
@@ -484,6 +449,36 @@ function createMarkerWithPopup(latlng) {
 
   marker.on("popupclose", function () {
     map.removeLayer(marker);
+  });
+}
+
+function enableIngredientTooltips(container, imgSelector) {
+  // Create a single reusable tooltip element for all images
+  const tooltipEl = document.createElement("div");
+  tooltipEl.className = "custom-tooltip";
+  document.body.appendChild(tooltipEl);
+
+  // Grab all images based on the selector
+  const images = container.querySelectorAll(imgSelector);
+
+  images.forEach((img) => {
+    // Show the tooltip (using alt or title as the text)
+    img.addEventListener("mouseenter", function (e) {
+      const text = img.getAttribute("alt") || img.getAttribute("title") || "";
+      tooltipEl.textContent = text;
+      tooltipEl.style.display = "block";
+    });
+
+    // Follow the mouse cursor
+    img.addEventListener("mousemove", function (e) {
+      tooltipEl.style.top = (e.pageY + 10) + "px";   // slight offset
+      tooltipEl.style.left = (e.pageX + 10) + "px";
+    });
+
+    // Hide on mouse leave
+    img.addEventListener("mouseleave", function () {
+      tooltipEl.style.display = "none";
+    });
   });
 }
 

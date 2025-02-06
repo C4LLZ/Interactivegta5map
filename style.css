@@ -460,3 +460,17 @@ textarea.popup-input {
   font-size: 14px;
 }
 
+/* Tooltip container styling (dark-themed) */
+.custom-tooltip {
+  position: absolute;
+  z-index: 9999;
+  pointer-events: none;  /* so the tooltip doesn't block mouse events */
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  display: none;         /* hidden by default */
+}
+
+
