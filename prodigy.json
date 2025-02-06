@@ -168,5 +168,12 @@
         ]
       }
     ]
-  }
+  },
+  "NPCS": {
+    "color": "red",
+    "locations": [
+      {"id":1738846806172,"lat":"137.312500","lng":"547.781250","name":"Construction Dude","img":"https://i.ibb.co/r1zg7Yq/image.png","Info":"Construction job where you go and rob construction sites to get materials"},
+      {"id":1738848588113,"lat":"209.750000","lng":"368.218750","name":"Letter Dude","img":"https://i.ibb.co/Xx6HxjPB/image.png"}
+    ]
+    }
 }

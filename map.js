@@ -266,7 +266,7 @@ function showSidePopup(location) {
              alt="${recipe.display}"
              title="${recipe.display}"
              data-recipe-id="${recipe.id}"
-             style="width:50px; height:50px; cursor:pointer; margin:5px; border: 1px solid #444; border-radius:4px;" />
+             style="width:50px; height:50px; cursor:pointer; margin:2px; border: 1px solid #444; border-radius:4px;" />
       `;
     });
 
