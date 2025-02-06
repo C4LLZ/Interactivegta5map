@@ -18,6 +18,98 @@
               { "id": "salvagedparts", "display": "Salvaged Parts", "amount": "5" },
               { "id": "copper_bar", "display": "Copper Bar", "amount": "2" }
             ]
+          },
+          {
+            "id": "pistol_trigger",
+            "display": "Pistol Trigger",
+            "ingredients": [
+              { "id": "iron_bar", "display": "Iron Bar", "amount": "2" },
+              { "id": "refined_metal_parts", "display": "Refined Metal Parts", "amount": "5" },
+              { "id": "scrap_metal", "display": "Scrap Metal", "amount": "5" }
+            ]
+          },
+          {
+            "id": "pistol_slide",
+            "display": "Pistol Slide",
+            "ingredients": [
+              { "id": "scrap_metal", "display": "Scrap Metal", "amount": "2" },
+              { "id": "rubber", "display": "Rubber", "amount": "5" },
+              { "id": "zinc_bar", "display": "Zinc Bar", "amount": "2" }
+            ]
+          },
+          {
+            "id": "joint_2b",
+            "display": "Joint Exodus",
+            "ingredients": [
+              { "id": "weed_2b", "display": "Crop of Exodus", "amount": "1" },
+              { "id": "weed_grinder", "display": "Grinder", "amount": "1" }
+            ]
+          },
+          {
+            "id": "joint_2a",
+            "display": "Joint Martian Candy",
+            "ingredients": [
+              { "id": "weed_2a", "display": "Crop of Martian Candy", "amount": "1" },
+              { "id": "weed_grinder", "display": "Grinder", "amount": "1" }
+            ]
+          },
+          {
+            "id": "joint_1b",
+            "display": "Joint Cherry Kush",
+            "ingredients": [
+              { "id": "weed_1b", "display": "Crop of Cherry Kush", "amount": "1" },
+              { "id": "weed_grinder", "display": "Grinder", "amount": "1" }
+            ]
+          },
+          {
+            "id": "joint_1a",
+            "display": "Joint Grape Ape",
+            "ingredients": [
+              { "id": "weed_1a", "display": "Crop of Grape Ape", "amount": "1" },
+              { "id": "weed_grinder", "display": "Grinder", "amount": "1" }
+            ]
+          },
+          {
+            "id": "scrapmetal",
+            "display": "Scrap Metal",
+            "ingredients": [
+              { "id": "rusty_nails", "display": "Rusty Nails", "amount": "1" },
+              { "id": "springs", "display": "Springs", "amount": "1" }
+            ]
+          },
+          {
+            "id": "weed_grinder",
+            "display": "Grinder",
+            "ingredients": [
+              { "id": "iron_bar", "display": "Iron Bar", "amount": "2" },
+              { "id": "scrap_metal", "display": "Scrap Metal", "amount": "2" }
+            ]
+          },
+          {
+            "id": "advanced_electric_parts",
+            "display": "Advanced Electronic Parts",
+            "ingredients": [
+              { "id": "zinc_bar", "display": "Zinc Bar", "amount": "3" },
+              { "id": "lithium_bar", "display": "Lithium Bar", "amount": "1" }
+            ]
+          },
+          {
+            "id": "armor",
+            "display": "Body Armor",
+            "ingredients": [
+              { "id": "weapon_hammer", "display": "Hammer", "amount": "1" },
+              { "id": "dirty_clothes", "display": "Dirty Clothes", "amount": "5" },
+              { "id": "piece_of_kevlar", "display": "Peice of Kevlar", "amount": "5" }
+            ]
+          },
+          {
+            "id": "radio_shitty",
+            "display": "P6900 Radio",
+            "ingredients": [
+              { "id": "electronic_parts", "display": "Electronic Parts", "amount": "5" },
+              { "id": "plastic", "display": "Plastic", "amount": "5" },
+              { "id": "battery", "display": "Battery", "amount": "1" }
+            ]
           }
         ]
       },
@@ -52,7 +144,7 @@
             "ingredients": [
               { "id": "weapon_hammer", "display": "Hammer", "amount": "1" },
               { "id": "dirty_clothes", "display": "Dirty Clothes", "amount": "5" },
-              { "id": "noitem", "display": "Kevlar", "amount": "1" }
+              { "id": "piece_of_kevlar", "display": "Peice of Kevlar", "amount": "1" }
             ]
           },
           {
