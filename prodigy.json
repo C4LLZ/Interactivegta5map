@@ -110,6 +110,15 @@
               { "id": "plastic", "display": "Plastic", "amount": "5" },
               { "id": "battery", "display": "Battery", "amount": "1" }
             ]
+          },
+          {
+            "id": "lockpick",
+            "display": "Lockpick",
+            "requirements": "DIY",
+            "ingredients": [
+              { "id": "iron_bar", "display": "Iron Bar", "amount": "2" },
+              { "id": "plastic", "display": "Plastic", "amount": "4" }
+            ]
           }
         ]
       },
@@ -247,6 +256,7 @@
         "name": "Crafting Bench",
         "img": "https://i.ibb.co/C36zXpPt/image.png",
         "bench": true,
+        "info" : "Random Weapons Crafting Bench?",
         "recipes": [
           {
             "id": "pistol_lower",
@@ -265,8 +275,8 @@
     "color": "red",
     "locations": [
       {"id":1738846806172,"lat":"137.312500","lng":"547.781250","name":"Construction Dude","img":"https://i.ibb.co/r1zg7Yq/image.png","Info":"Construction job where you go and rob construction sites to get materials"},
-      {"id":1738848588113,"lat":"209.750000","lng":"368.218750","name":"Letter Dude","img":"https://i.ibb.co/Xx6HxjPB/image.png"},
-      {"id":1738851158820,"lat":"628.125000","lng":"608.968750","name":"House Robberies","img":"https://i.ibb.co/hRjxQGwS/image.png"}
+      {"id":1738848588113,"lat":"209.750000","lng":"368.218750","name":"Letter Dude","img":"https://i.ibb.co/Xx6HxjPB/image.png","Info":"Is sometimes not here, Turn in envelopes etc. "},
+      {"id":1738851158820,"lat":"628.125000","lng":"608.968750","name":"House Robberies","img":"https://i.ibb.co/hRjxQGwS/image.png","Info":"Guy to get House Robberies from."}
     ]
     }
 }

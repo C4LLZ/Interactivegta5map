@@ -205,7 +205,7 @@ textarea.popup-input {
 }
 
 .popup-button.green {
-  background-color: green;
+  background-color: rgb(134, 214, 36);
   color: white;
 }
 
@@ -400,6 +400,12 @@ textarea.popup-input {
 .crafting-time {
   margin-top: 5px;
   font-size: 14px;
+}
+
+.crafting-requirements {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color:rgb(179, 29, 29)
 }
 
 .time-label {

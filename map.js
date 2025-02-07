@@ -6,6 +6,8 @@ var map = L.map("map", {
   preferCanvas: true,
 });
 
+const cdnImageCache = {};
+
 // Set map bounds and add the base image overlay
 var bounds = [
   [0, 0],
@@ -243,14 +245,19 @@ function loadCategories(categoryIcons) {
  * replaces any existing recipe details.
  */
 function showSidePopup(location) {
-  // Build the basic popup content with the location title and image.
+  // Build the basic popup content with the location title and info (if available), then image
   let content = `
     <h1>${location.name}</h1>
-    <img 
+    ${
+      location.Info
+        ? `<p style="margin-top: 5px; font-style: italic;">${location.Info}</p>`
+        : ""
+    }
+    <img
       src="${location.img}"
       alt="${location.name}"
       title="${location.name}"
-      style="width:100%; height:auto; margin-bottom:10px; cursor:pointer;" 
+      style="width:100%; height:auto; margin-bottom:10px; cursor:pointer;"
     />
   `;
 
@@ -259,17 +266,16 @@ function showSidePopup(location) {
     content += `<h3>Recipes:</h3>
                 <div id="recipe-menu" style="display: flex; flex-wrap: wrap; margin-left:10px;">`;
 
-    // For each recipe in the array, create an image button with hover tooltip.
     location.recipes.forEach(function (recipe) {
       let recipeImageUrl = `https://cdn.prodigyrp.net/inventory-images/${recipe.id}.webp`;
       content += `
-        <img 
+        <img
           class="recipe-image"
           src="${recipeImageUrl}"
           alt="${recipe.display}"
           title="${recipe.display}"
           data-recipe-id="${recipe.id}"
-          style="width:50px; height:50px; cursor:pointer; margin:2px; border: 1px solid #444; border-radius:4px;" 
+          style="width:50px; height:50px; cursor:pointer; margin:2px; border:1px solid rgb(134, 214, 36); border-radius:4px;"
         />
       `;
     });
@@ -279,13 +285,13 @@ function showSidePopup(location) {
                 <div id="recipe-details"></div>`;
   }
 
-  // Set the side popup content and display it
+  // Insert this content into the side popup
   const popupContentEl = document.getElementById("side-popup-content");
   popupContentEl.innerHTML = content;
   document.getElementById("side-popup").style.display = "block";
 
   // Main image modal click event
-  let sideImg = popupContentEl.querySelector("img"); // first <img> is the main location image
+  let sideImg = popupContentEl.querySelector("img"); // the first <img> is the main location image
   if (sideImg) {
     sideImg.addEventListener("click", function () {
       openModal(this.src);
@@ -301,8 +307,7 @@ function showSidePopup(location) {
       if (!recipe) return;
 
       let detailsContainer = document.getElementById("recipe-details");
-      // Clear any previously displayed recipe
-      detailsContainer.innerHTML = "";
+      detailsContainer.innerHTML = ""; // Clear any previously displayed recipe
 
       // Build the crafting UI
       let craftingUI = buildCraftingUI(recipe);
@@ -310,9 +315,10 @@ function showSidePopup(location) {
     });
   });
 
-  // Enable custom tooltips for **all** images in the side-popup
-  enableIngredientTooltips(popupContentEl, "img");     // <-- new!
+  // Enable custom tooltips for all images in the side popup
+  enableIngredientTooltips(popupContentEl, "img");
 }
+
 
 
 /**
@@ -323,7 +329,13 @@ function buildCraftingUI(recipe) {
   let container = document.createElement("div");
   container.classList.add("crafting-ui");
 
+  // Build main UI
   container.innerHTML = `
+      ${
+      recipe.requirements
+        ? `<div class="crafting-requirements">Requires : ${recipe.requirements}</div>`
+        : ""
+    }
     <div class="crafting-header">
       <div>
         <div class="crafting-item-name">${recipe.display}</div>
@@ -338,11 +350,20 @@ function buildCraftingUI(recipe) {
       </div>
     </div>
 
+
+
     <div class="items-required-container">
       <div class="items-required-title">ITEMS REQUIRED</div>
       <div class="items-required"></div>
     </div>
   `;
+
+  // If there's a requirement, set the border to red
+  if (recipe.requirements) {
+    container.style.border = "1px solid red";
+  }else{
+    container.style.border = "1px solid rgb(134, 214, 36)";
+  }
 
   // Populate the items required
   let itemsRequiredEl = container.querySelector(".items-required");
@@ -355,7 +376,7 @@ function buildCraftingUI(recipe) {
       <img src="${ingredientImageUrl}"
            alt="${ingredient.display}"
            title="${ingredient.display}"
-           style="width:30px; height:30px; margin-right:5px; border:1px solid #444; border-radius:4px;" />
+           style="width:30px; height:30px; margin-right:5px; border:1px solid rgb(134, 214, 36); border-radius:4px;" />
       <span class="quantity-text">0/${ingredient.amount}</span>
     `;
 
@@ -368,6 +389,7 @@ function buildCraftingUI(recipe) {
 
   return container;
 }
+
 
 
 function getCDNImageUrl(name) {
@@ -531,14 +553,36 @@ window.onclick = function (event) {
   }
 };
 
-// **Data Source Selection Modal Events**
+window.addEventListener("DOMContentLoaded", function () {
+  const storedDataSource = localStorage.getItem("selectedDataSource");
+  if (storedDataSource) {
+    // We have a previously saved server
+    dataSource = storedDataSource;
+    document.getElementById("dataSourceModal").style.display = "none";
+    loadData(dataSource);
+  } else {
+    // No saved preference; show the modal
+    document.getElementById("dataSourceModal").style.display = "block";
+  }
+});
+
+// 2) Server selection buttons
 document.getElementById("echoRPButton").addEventListener("click", function () {
   dataSource = "categories.json";
+  // Save to localStorage
+  localStorage.setItem("selectedDataSource", dataSource);
+
+  // Close the modal and load
   document.getElementById("dataSourceModal").style.display = "none";
   loadData(dataSource);
 });
+
 document.getElementById("prodigySelectButton").addEventListener("click", function () {
   dataSource = "prodigy.json";
+  // Save to localStorage
+  localStorage.setItem("selectedDataSource", dataSource);
+
+  // Close the modal and load
   document.getElementById("dataSourceModal").style.display = "none";
   loadData(dataSource);
 });
