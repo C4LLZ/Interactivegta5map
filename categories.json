@@ -56,7 +56,7 @@
         {"id":1728149158602,"lat":"821.500000","lng":"230.000000","name":"Oil Rig","img":"https://i.ibb.co/RhJWBV8/image.png"},
         {"id":1728151081924,"lat":"249.031250","lng":"515.375000","name":"Big Pawn","img":"https://i.ibb.co/hmH4r5J/image.png"},
         {"id":1728151149593,"lat":"248.015625","lng":"515.375000","name":"Crypto Heist HDD","img":"https://i.ibb.co/c67Chkq/image.png"},
-        {"id":1739672289186,"lat":"462.625000","lng":"583.250000","name":"Small Pawn","img":"https://i.ibb.co/yBVNK2C1/image.png"},
+        {"id":1739672289186,"lat":"462.625000","lng":"583.250000","name":"Small Pawn","img":"https://i.ibb.co/yBVNK2C1/image.png", "info":"Need $1000 to start"},
         {"id":1738446600777,"lat":"210.312500","lng":"489.250000","name":"GRAVE ROBBING","img":"https://i.ibb.co/yvGKYvL/image.png"},
         {"id":1738516946876,"lat":"430.875000","lng":"519.937500","name":"Bone Meal","img":"https://i.ibb.co/WWSy4Pj7/image.png"},
         {"id":1739639920705,"lat":"127.000000","lng":"517.562500","name":"JOB CAR","img":"https://i.ibb.co/Rp62TpP1/image.png","info":"NEED 40 LOOSE NOTES"}
