@@ -250,13 +250,31 @@
         ]
       },
       {
+        "id":1738978650267,
+        "lat":"184.312500",
+        "lng":"419.937500",
+        "name":"Recycled Goods",
+        "img":"https://i.ibb.co/MDFVRsV1/image.png",
+        "info" : "Craft things into Recycled Goods here",
+        "bench": true,
+        "recipes": [
+          {
+            "id": "recycledgoods",
+            "display": "Recycled Goods",
+            "ingredients": [
+              { "id": "veh_brakes", "display": "Vehicle Breaks", "amount": "1" }
+            ]
+          }
+        ]
+      },
+      {
         "id": 1738845406218,
         "lat": "852.468750",
         "lng": "462.406250",
         "name": "Crafting Bench",
         "img": "https://i.ibb.co/C36zXpPt/image.png",
         "bench": true,
-        "info" : "Random Weapons Crafting Bench?",
+        "info": "Random Weapons Crafting Bench?",
         "recipes": [
           {
             "id": "pistol_lower",
@@ -274,9 +292,38 @@
   "NPCS": {
     "color": "red",
     "locations": [
-      {"id":1738846806172,"lat":"137.312500","lng":"547.781250","name":"Construction Dude","img":"https://i.ibb.co/r1zg7Yq/image.png","Info":"Construction job where you go and rob construction sites to get materials"},
-      {"id":1738848588113,"lat":"209.750000","lng":"368.218750","name":"Letter Dude","img":"https://i.ibb.co/Xx6HxjPB/image.png","Info":"Is sometimes not here, Turn in envelopes etc. "},
-      {"id":1738851158820,"lat":"628.125000","lng":"608.968750","name":"House Robberies","img":"https://i.ibb.co/hRjxQGwS/image.png","Info":"Guy to get House Robberies from."}
+      {
+        "id": 1738846806172,
+        "lat": "137.312500",
+        "lng": "547.781250",
+        "name": "Construction Dude",
+        "img": "https://i.ibb.co/r1zg7Yq/image.png",
+        "Info": "Construction job where you go and rob construction sites to get materials"
+      },
+      {
+        "id": 1738848588113,
+        "lat": "209.750000",
+        "lng": "368.218750",
+        "name": "Letter Dude",
+        "img": "https://i.ibb.co/Xx6HxjPB/image.png",
+        "Info": "Is sometimes not here, Turn in envelopes etc."
+      },
+      {
+        "id": 1738851158820,
+        "lat": "628.125000",
+        "lng": "608.968750",
+        "name": "House Robberies",
+        "img": "https://i.ibb.co/hRjxQGwS/image.png",
+        "Info": "Guy to get House Robberies from."
+      },
+      {
+        "id":1738943695771,
+        "lat":"373.281250",
+        "lng":"213.281250",
+        "name":"Cocaine Run",
+        "img":"https://i.ibb.co/Q3m7hRXS/image.png",
+        "Info":"Guy to start a Cocaine Run from."
+      }
     ]
-    }
+  }
 }
